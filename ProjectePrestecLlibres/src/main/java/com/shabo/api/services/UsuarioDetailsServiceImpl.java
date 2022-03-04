@@ -33,7 +33,7 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
 		// TODO Auto-generated method stub
 		Usuario usuario = iUsuarioDAO.findByUsername(nombre);
 		if(usuario == null) {
-			throw new UsernameNotFoundException(nombre);
+			throw new UsernameNotFoundException(nombre + "no existe en la base de datos");
 		}
 		return new User(usuario.getNombre(), usuario.getPassword(), emptyList());
 	}
