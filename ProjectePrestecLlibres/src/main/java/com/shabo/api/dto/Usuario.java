@@ -45,7 +45,7 @@ public class Usuario {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "emisor")
 	private List<Chat> chatsEnviados;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "receptor")
-	private List<Chat> ChatsRecividos;
+	private List<Chat> chatsRecividos;
 
 	public Usuario(String password, String username, String nombre, String role, List<UsuarioLibro> listaLibros,
 			List<Prestamo> prestamos, List<Comentario> comentarios, List<Valoracion> puntuaciones,
@@ -60,8 +60,17 @@ public class Usuario {
 		this.comentarios = comentarios;
 		this.puntuaciones = puntuaciones;
 		this.chatsEnviados = chatsEnviados;
-		ChatsRecividos = chatsRecividos;
+		this.chatsRecividos = chatsRecividos;
 	}
+
+	public Usuario(String password, String username, String nombre) {
+		super();
+		this.password = password;
+		this.username = username;
+		this.nombre = nombre;
+	}
+
+
 
 	public Usuario() {
 		super();
@@ -132,11 +141,11 @@ public class Usuario {
 	}
 
 	public List<Chat> getChatsRecividos() {
-		return ChatsRecividos;
+		return this.chatsRecividos;
 	}
 
 	public void setChatsRecividos(List<Chat> chatsRecividos) {
-		ChatsRecividos = chatsRecividos;
+		this.chatsRecividos = chatsRecividos;
 	}
 
 	public String getUsername() {

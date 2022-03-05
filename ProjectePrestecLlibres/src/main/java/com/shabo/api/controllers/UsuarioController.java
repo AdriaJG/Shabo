@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.shabo.api.dao.IUsuarioDAO;
 import com.shabo.api.dto.Usuario;
-import com.shabo.api.services.UsuarioServiceImpl;
+import static com.shabo.api.statics.Roles.*;
 
 import java.util.List;
 
@@ -50,24 +50,32 @@ public class UsuarioController {
 	      .body("Response with header using ResponseEntity");
 	}
 	
-	@PostMapping("/users/")
+	@PostMapping("/usuarios")
 	public Usuario saveUsuario(@RequestBody Usuario user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		iUsuarioDAO.save(user);
 		return user;
 	}
+	
+	@PostMapping("/register")
+	public Usuario registrarUsuario(@RequestBody Usuario user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setRole(USER);
+		iUsuarioDAO.save(user);
+		return user;
+	}
 
-	@GetMapping("/users/")
+	@GetMapping("/usuarios")
 	public List<Usuario> getAllUsuarios() {
 		return iUsuarioDAO.findAll();
 	}
 
-	@GetMapping("/users/{nombre}")
+	@GetMapping("/usuarios/{nombre}")
 	public Usuario getUsuario(@PathVariable String nombre) {
 		return iUsuarioDAO.findByUsername(nombre);
 	}
 	
-	@DeleteMapping("/users/{id}")
+	@DeleteMapping("/usuarios/{id}")
 	public String eliminarUser(@PathVariable(name="id")int id) {
 		iUsuarioDAO.deleteById(id);
 		return "User deleted.";
