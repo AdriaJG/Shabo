@@ -20,7 +20,7 @@ public interface IUsuarioService {
 	
 	public Usuario crearUsuario(Usuario usuario);
 	
-	public Usuario modificarUsuario(int id, Usuario usuario);
+	public Usuario modificarUsuario(Usuario usuario);
 	
 	public void eliminarUsuario(int id);
 }

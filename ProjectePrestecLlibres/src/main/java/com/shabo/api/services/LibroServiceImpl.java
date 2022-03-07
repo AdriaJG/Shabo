@@ -40,7 +40,7 @@ public class LibroServiceImpl implements ILibroService {
 	}
 
 	@Override
-	public Libro modificarLibro(String id, Libro libro) {
+	public Libro modificarLibro(Libro libro) {
 		// TODO Auto-generated method stub
 		return iLibroDAO.save(libro);
 	}

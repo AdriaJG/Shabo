@@ -18,7 +18,7 @@ public interface ILibroService {
 	
 	public Libro crearLibro(Libro libro);
 	
-	public Libro modificarLibro(String id, Libro libro);
+	public Libro modificarLibro(Libro libro);
 	
 	public void eliminarLibro(String id);
 }

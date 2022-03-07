@@ -40,7 +40,7 @@ public class ValoracionServiceImpl implements IValoracionService {
 	}
 
 	@Override
-	public Valoracion modificarValoracion(int id, Valoracion valoracion) {
+	public Valoracion modificarValoracion(Valoracion valoracion) {
 		// TODO Auto-generated method stub
 		return iValoracionDAO.save(valoracion);
 	}

@@ -18,7 +18,7 @@ public interface IUsuarioLibroService {
 	
 	public UsuarioLibro crearUsuarioLibro(UsuarioLibro propietario);
 	
-	public UsuarioLibro modificarUsuarioLibro(int id, UsuarioLibro propietario);
+	public UsuarioLibro modificarUsuarioLibro(UsuarioLibro propietario);
 	
 	public void eliminarUsuarioLibro(int id);
 }

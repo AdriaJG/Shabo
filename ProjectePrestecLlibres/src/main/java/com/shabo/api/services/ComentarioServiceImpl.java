@@ -40,7 +40,7 @@ public class ComentarioServiceImpl implements IComentarioService {
 	}
 
 	@Override
-	public Comentario modificarComentario(int id, Comentario comentario) {
+	public Comentario modificarComentario(Comentario comentario) {
 		// TODO Auto-generated method stub
 		return iComentarioDAO.save(comentario);
 	}

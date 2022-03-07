@@ -18,7 +18,7 @@ public interface IComentarioService {
 	
 	public Comentario crearComentario(Comentario comentario);
 	
-	public Comentario modificarComentario(int id, Comentario comentario);
+	public Comentario modificarComentario(Comentario comentario);
 	
 	public void eliminarComentario(int id);
 }

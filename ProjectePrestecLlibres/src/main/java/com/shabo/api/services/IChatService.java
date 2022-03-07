@@ -18,7 +18,7 @@ public interface IChatService {
 	
 	public Chat crearChat(Chat chat);
 	
-	public Chat modificarChat(int id, Chat chat);
+	public Chat modificarChat(Chat chat);
 	
 	public void eliminarChat(int id);
 }
