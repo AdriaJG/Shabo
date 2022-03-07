@@ -58,13 +58,10 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 						.getSubject();
 
 			if (user != null) {
-				log.debug("Usuario encontrado");
 				return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
 			}
-			log.debug("Usuario no encontrado");
 			return null;
 		}
-		log.debug("Toquen no encontrado");
 		return null;
 	}
 }
