@@ -30,6 +30,8 @@ public class Usuario {
 	private String password;
 	@Column(name="username")
 	String username;
+	@Column(name="email")
+	String email;
 	@Column(name="nombre")
 	private String nombre;
 	@Column(name="role")
@@ -63,11 +65,12 @@ public class Usuario {
 		this.chatsRecividos = chatsRecividos;
 	}
 
-	public Usuario(String password, String username, String nombre) {
+	public Usuario(String username, String password, String nombre, String email) {
 		super();
 		this.password = password;
 		this.username = username;
 		this.nombre = nombre;
+		this.email = email;
 	}
 
 
@@ -162,5 +165,13 @@ public class Usuario {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

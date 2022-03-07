@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}, allowedHeaders = "*")
 public class UsuarioController {
 	private IUsuarioDAO iUsuarioDAO;
 	
@@ -59,9 +59,12 @@ public class UsuarioController {
 	
 	@PostMapping("/register")
 	public Usuario registrarUsuario(@RequestBody Usuario user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		user.setRole(USER);
-		iUsuarioDAO.save(user);
+		
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));;
+		
+		Usuario crearUsuario = new Usuario(user.getUsername(), user.getPassword(), user.getNombre(), user.getEmail());
+		crearUsuario.setRole(USER);
+		iUsuarioDAO.save(crearUsuario);
 		return user;
 	}
 

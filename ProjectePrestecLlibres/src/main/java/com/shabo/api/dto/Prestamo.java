@@ -25,7 +25,7 @@ public class Prestamo {
 	@JoinColumn(name="propietario_id")
 	private UsuarioLibro libro;
 	@ManyToOne
-	@JoinColumn(name="usuario_id")
+	@JoinColumn(name="usuario_prestamo")
 	private Usuario usuario;
 	
 	public Prestamo(UsuarioLibro libro, Usuario usuario) {
