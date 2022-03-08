@@ -40,7 +40,7 @@ public class ChatServiceImpl implements IChatService {
 	}
 
 	@Override
-	public Chat modificarChat(int id, Chat chat) {
+	public Chat modificarChat(Chat chat) {
 		// TODO Auto-generated method stub
 		return iChatDAO.save(chat);
 	}

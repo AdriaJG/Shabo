@@ -6,6 +6,8 @@ package com.shabo.api.services;
 import java.util.List;
 
 import com.shabo.api.dto.Libro;
+import com.shabo.api.dto.UsuarioLibro;
+import com.shabo.api.dto.Usuario;
 
 /**
  * @author Fenrir
@@ -18,7 +20,9 @@ public interface ILibroService {
 	
 	public Libro crearLibro(Libro libro);
 	
-	public Libro modificarLibro(String id, Libro libro);
+	public Libro modificarLibro(Libro libro);
 	
 	public void eliminarLibro(String id);
+	
+	public boolean esPropietario(Libro libro, Usuario usuario);
 }

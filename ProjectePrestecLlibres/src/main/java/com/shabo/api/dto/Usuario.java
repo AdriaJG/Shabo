@@ -30,6 +30,8 @@ public class Usuario {
 	private String password;
 	@Column(name="username")
 	String username;
+	@Column(name="email")
+	String email;
 	@Column(name="nombre")
 	private String nombre;
 	@Column(name="role")
@@ -45,7 +47,7 @@ public class Usuario {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "emisor")
 	private List<Chat> chatsEnviados;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "receptor")
-	private List<Chat> ChatsRecividos;
+	private List<Chat> chatsRecividos;
 
 	public Usuario(String password, String username, String nombre, String role, List<UsuarioLibro> listaLibros,
 			List<Prestamo> prestamos, List<Comentario> comentarios, List<Valoracion> puntuaciones,
@@ -60,8 +62,18 @@ public class Usuario {
 		this.comentarios = comentarios;
 		this.puntuaciones = puntuaciones;
 		this.chatsEnviados = chatsEnviados;
-		ChatsRecividos = chatsRecividos;
+		this.chatsRecividos = chatsRecividos;
 	}
+
+	public Usuario(String username, String password, String nombre, String email) {
+		super();
+		this.password = password;
+		this.username = username;
+		this.nombre = nombre;
+		this.email = email;
+	}
+
+
 
 	public Usuario() {
 		super();
@@ -132,11 +144,11 @@ public class Usuario {
 	}
 
 	public List<Chat> getChatsRecividos() {
-		return ChatsRecividos;
+		return this.chatsRecividos;
 	}
 
 	public void setChatsRecividos(List<Chat> chatsRecividos) {
-		ChatsRecividos = chatsRecividos;
+		this.chatsRecividos = chatsRecividos;
 	}
 
 	public String getUsername() {
@@ -153,5 +165,13 @@ public class Usuario {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

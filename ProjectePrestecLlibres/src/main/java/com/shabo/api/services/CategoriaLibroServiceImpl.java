@@ -41,7 +41,7 @@ public class CategoriaLibroServiceImpl implements ICategoriaLibroService {
 	}
 
 	@Override
-	public CategoriaLibro modificarCategoriaLibro(CategoriaLibroID id, CategoriaLibro categoria) {
+	public CategoriaLibro modificarCategoriaLibro( CategoriaLibro categoria) {
 		// TODO Auto-generated method stub
 		return iCategoriaLibroDAO.save(categoria);
 	}

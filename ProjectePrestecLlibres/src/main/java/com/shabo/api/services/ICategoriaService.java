@@ -18,7 +18,7 @@ public interface ICategoriaService {
 	
 	public Categoria crearCategoria(Categoria categoria);
 	
-	public Categoria modificarCategoria(String id,Categoria categoria);
+	public Categoria modificarCategoria(Categoria categoria);
 	
 	public void eliminarCategoria(String id);
 }

@@ -35,7 +35,7 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
 		if(usuario == null) {
 			throw new UsernameNotFoundException(nombre + "no existe en la base de datos");
 		}
-		return new User(usuario.getNombre(), usuario.getPassword(), emptyList());
+		return new User(usuario.getUsername(), usuario.getPassword(), emptyList());
 	}
 
 }

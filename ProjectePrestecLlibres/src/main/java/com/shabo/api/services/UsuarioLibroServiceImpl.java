@@ -40,7 +40,7 @@ public class UsuarioLibroServiceImpl implements IUsuarioLibroService {
 	}
 
 	@Override
-	public UsuarioLibro modificarUsuarioLibro(int id, UsuarioLibro usuarioLibro) {
+	public UsuarioLibro modificarUsuarioLibro(UsuarioLibro usuarioLibro) {
 		// TODO Auto-generated method stub
 		return iUsuarioLibroDAO.save(usuarioLibro);
 	}

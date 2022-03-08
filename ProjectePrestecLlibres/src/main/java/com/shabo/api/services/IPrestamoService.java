@@ -18,7 +18,7 @@ public interface IPrestamoService {
 	
 	public Prestamo crearPrestamo(Prestamo prestamo);
 	
-	public Prestamo modificarPrestamo(int id, Prestamo prestamot);
+	public Prestamo modificarPrestamo(Prestamo prestamot);
 	
 	public void eliminarPrestamo(int id);
 }

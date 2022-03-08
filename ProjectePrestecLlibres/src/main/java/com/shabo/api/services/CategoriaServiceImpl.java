@@ -40,7 +40,7 @@ public class CategoriaServiceImpl implements ICategoriaService {
 	}
 
 	@Override
-	public Categoria modificarCategoria(String id, Categoria categoria) {
+	public Categoria modificarCategoria(Categoria categoria) {
 		// TODO Auto-generated method stub
 		return iCategoriaDAO.save(categoria);
 	}

@@ -40,7 +40,7 @@ public class PrestamoServiceImpl implements IPrestamoService {
 	}
 
 	@Override
-	public Prestamo modificarPrestamo(int id, Prestamo prestamo) {
+	public Prestamo modificarPrestamo(Prestamo prestamo) {
 		// TODO Auto-generated method stub
 		return iPrestamoDAO.save(prestamo);
 	}

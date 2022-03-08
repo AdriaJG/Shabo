@@ -19,7 +19,7 @@ public interface ICategoriaLibroService {
 	
 	public CategoriaLibro crearCategoriaLibro(CategoriaLibro chat);
 	
-	public CategoriaLibro modificarCategoriaLibro(CategoriaLibroID id,CategoriaLibro chat);
+	public CategoriaLibro modificarCategoriaLibro(CategoriaLibro chat);
 	
 	public void eliminarCategoriaLibro(CategoriaLibroID id);
 }

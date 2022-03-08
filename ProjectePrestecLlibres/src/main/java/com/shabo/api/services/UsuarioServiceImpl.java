@@ -40,7 +40,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	}
 
 	@Override
-	public Usuario modificarUsuario(int id, Usuario usuario) {
+	public Usuario modificarUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 		return iUsuarioDAO.save(usuario);
 	}
@@ -52,9 +52,17 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	}
 
 	@Override
-	public Usuario buscarUsuarioNombre(String nombre) {
+	public Usuario buscarUsuarioUsername(String nombre) {
 		// TODO Auto-generated method stub
 		return iUsuarioDAO.findByUsername(nombre);
 	}
+
+	@Override
+	public Usuario buscarUsuarioNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return iUsuarioDAO.findByNombre(nombre);
+	}
+	
+	
 	
 }

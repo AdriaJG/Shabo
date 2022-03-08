@@ -18,7 +18,7 @@ public interface IValoracionService {
 	
 	public Valoracion crearValoracion(Valoracion valoracion);
 	
-	public Valoracion modificarValoracion(int id, Valoracion valoracion);
+	public Valoracion modificarValoracion(Valoracion valoracion);
 	
 	public void eliminarValoracion(int id);
 }
