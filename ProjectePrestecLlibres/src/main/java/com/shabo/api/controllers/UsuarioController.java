@@ -7,12 +7,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.shabo.api.dao.IUsuarioDAO;
 import com.shabo.api.dto.Usuario;
+import com.shabo.api.dto.UsuarioLibro;
+
 import static com.shabo.api.statics.Roles.*;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -76,6 +80,11 @@ public class UsuarioController {
 	@GetMapping("/usuarios/{nombre}")
 	public Usuario getUsuario(@PathVariable String nombre) {
 		return iUsuarioDAO.findByUsername(nombre);
+	}
+	
+	@GetMapping("usuarios/libros")
+	public List<UsuarioLibro> obtenerLibrosUsuario(Authentication authentication){
+		return iUsuarioDAO.findByNombre(authentication.getName()).getListaLibros();
 	}
 	
 	@DeleteMapping("/usuarios/{id}")

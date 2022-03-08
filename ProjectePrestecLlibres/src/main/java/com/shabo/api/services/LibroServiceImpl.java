@@ -3,6 +3,8 @@
  */
 package com.shabo.api.services;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 import com.shabo.api.dao.ILibroDAO;
 import com.shabo.api.dto.Libro;
+import com.shabo.api.dto.Usuario;
+import com.shabo.api.dto.UsuarioLibro;
 
 /**
  * @author Fenrir
@@ -49,6 +53,18 @@ public class LibroServiceImpl implements ILibroService {
 	public void eliminarLibro(String id) {
 		iLibroDAO.deleteById(id);
 		
+	}
+
+	@Override
+	public boolean esPropietario(Libro libro, Usuario usuario) {
+		// TODO Auto-generated method stub
+		List<UsuarioLibro> propietarios = libro.getListaPropietarios();
+		for (int i = 0; i < propietarios.size(); i++) {
+			if(propietarios.get(i).getUsuario() == usuario) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	

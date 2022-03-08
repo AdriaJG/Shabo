@@ -42,10 +42,10 @@ public class Libro {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "libro")
 	private List<CategoriaLibro> categorias;
 	
-	public Libro(String iSBN, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
+	public Libro(String ISBN, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
 			List<Comentario> comentarios, List<Valoracion> puntuaciones, List<CategoriaLibro> categorias) {
 		super();
-		ISBN = iSBN;
+		this.ISBN = ISBN;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.autor = autor;

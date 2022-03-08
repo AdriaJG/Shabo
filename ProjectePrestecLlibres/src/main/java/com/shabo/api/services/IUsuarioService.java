@@ -18,6 +18,8 @@ public interface IUsuarioService {
 	
 	public Usuario buscarUsuarioNombre(String nombre);
 	
+	public Usuario buscarUsuarioUsername(String nombre);
+	
 	public Usuario crearUsuario(Usuario usuario);
 	
 	public Usuario modificarUsuario(Usuario usuario);
