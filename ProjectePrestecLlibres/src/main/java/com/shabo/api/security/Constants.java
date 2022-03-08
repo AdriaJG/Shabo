@@ -10,7 +10,7 @@ package com.shabo.api.security;
 public class Constants {
 	// Spring Security
 		public static final String LOGIN_URL = System.getenv("LOGIN_URL");
-		public static final String REGISTER_URL = System.getenv("LOGIN_URL");
+		public static final String REGISTER_URL = System.getenv("REGISTER_URL");
 		public static final String HEADER_AUTHORIZACION_KEY = System.getenv("HEADER_AUTHORIZACION_KEY");
 		public static final String TOKEN_BEARER_PREFIX = System.getenv("TOKEN_BEARER_PREFIX");
 
