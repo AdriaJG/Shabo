@@ -69,7 +69,7 @@ public class UsuarioController {
 		Usuario crearUsuario = new Usuario(user.getUsername(), user.getPassword(), user.getNombre(), user.getEmail());
 		crearUsuario.setRole(USER);
 		iUsuarioDAO.save(crearUsuario);
-		return user;
+		return crearUsuario;
 	}
 
 	@GetMapping("/usuarios")
