@@ -1,1 +1,0 @@
-MYSQL_HOST =bjh25k.stackhero-network.com, MYSQL_PORT=3306, MYSQL_DATABASE=proyectolibro, DB_USER=ROOT, DB_PASSWORD=X5jE65shkWmjfxei3I7lfqYh0FXctbB2, API_USER=admin, API_PASSWORD=1234
