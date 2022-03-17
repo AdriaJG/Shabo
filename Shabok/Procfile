@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -Dhttps.keyStore=certs/shabok.jks -Djavax.net.ssl.keyStorePassword=$SUPER_SECRET_KEY -jar target/*.war
+web: java -Dserver.port=$PORT -Djavax.net.debug=ssl -Djavax.net.ssl.trustStore=certs/shabok.jks -Djavax.net.ssl.trustStorePassword=$SUPER_SECRET_KEY -jar target/*.war
