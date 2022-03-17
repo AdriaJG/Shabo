@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.shabo.api.statics.EstadoChat;
 
@@ -32,15 +34,16 @@ public class Chat {
 	@Column(name="estado")
 	private EstadoChat estado;
 	@Column(name="hora")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date horaEnviado;
 	@ManyToOne
 	@JoinColumn(name="usuario_emisor")
-	private UsuarioLibro emisor;
+	private Usuario emisor;
 	@ManyToOne
 	@JoinColumn(name="usuario_receptor")
 	private Usuario receptor;
 	
-	public Chat(String mensaje, EstadoChat estado, Date horaEnviado, UsuarioLibro emisor, Usuario receptor) {
+	public Chat(String mensaje, EstadoChat estado, Date horaEnviado, Usuario emisor, Usuario receptor) {
 		super();
 		this.mensaje = mensaje;
 		this.estado = estado;
@@ -85,11 +88,11 @@ public class Chat {
 		this.horaEnviado = horaEnviado;
 	}
 
-	public UsuarioLibro getEmisor() {
+	public Usuario getEmisor() {
 		return emisor;
 	}
 
-	public void setEmisor(UsuarioLibro emisor) {
+	public void setEmisor(Usuario emisor) {
 		this.emisor = emisor;
 	}
 
