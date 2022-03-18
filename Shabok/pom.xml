@@ -93,6 +93,28 @@
 								</goals>
 							</execution>
 						</executions>
+						<configuration>
+							<images>
+								<image>
+									<name>${project.artifactId}:%t</name>
+									<alias>${project.artifactId}</alias>
+									<build>
+										<from>registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift:${openjdk18-openshift.version}</from>
+										<assembly>
+											<basedir>/deployments</basedir>
+											<descriptorRef>artifact</descriptorRef>
+										</assembly>
+										<env>
+											<ARTIFACT_COPY_ARGS>*.war</ARTIFACT_COPY_ARGS>
+											<JAVA_APP_DIR>/deployments</JAVA_APP_DIR>
+										</env>
+										<ports>
+											<port>8080</port>
+										</ports>
+									</build>
+								</image>
+							</images>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
