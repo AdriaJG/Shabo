@@ -63,13 +63,17 @@
 			<version>0.9.0</version>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>io.fabric8</groupId>
+	
+	<profile>
+      <id>openshift</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>io.fabric8</groupId>
             <artifactId>fabric8-maven-plugin</artifactId>
-            
+            <executions>
+              ...
+            </executions>
             <configuration>
                 <images>
                     <image>
@@ -92,9 +96,9 @@
                     </image>
                 </images>
             </configuration>
-            
-			</plugin>
-		</plugins>
-	</build>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
 
 </project>
