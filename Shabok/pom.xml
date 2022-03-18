@@ -76,7 +76,7 @@
                         <name>${project.artifactId}:%t</name>
                         <alias>${project.artifactId}</alias>
                         <build>
-                            <from>registry.access.redhat.com/redhat-openjdk-17/openjdk17-openshift:${openjdk17-openshift.version}</from>
+                            <from>registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift:${openjdk18-openshift.version}</from>
                             <assembly>
                                 <basedir>/deployments</basedir>
                                 <descriptorRef>artifact</descriptorRef>
