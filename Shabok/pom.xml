@@ -111,7 +111,6 @@
 									<build>
 										<from>registry.access.redhat.com/redhat-openjdk-17/openjdk17-openshift:${openjdk17-openshift.version}</from>
 										<assembly>
-											<outputDirectory>deployments</outputDirectory>
 											<basedir>/deployments</basedir>
 											<descriptorRef>artifact</descriptorRef>
 										</assembly>
