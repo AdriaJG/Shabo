@@ -19,5 +19,5 @@ RUN mvn dependency:go-offline
 
 COPY src src
 #RUN mvn package -Dmaven.test.skip=true
-RUN mvn package fabric8:build
+RUN mvn package fabric8:build -Popenshift
 RUN mvn clean fabric8:deploy -Popenshift
