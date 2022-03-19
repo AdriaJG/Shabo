@@ -10,7 +10,7 @@
 # docker run -i --rm -p 8081:8081 springboot/sample-demo
 ####
 FROM ubi8/openjdk-17
-
+USER root
 WORKDIR /build
 
 # Build dependency offline to streamline build
