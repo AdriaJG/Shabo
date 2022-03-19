@@ -79,6 +79,16 @@
 		<profile>
 			<id>openshift</id>
 			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+						<filtering>true</filtering>
+						<excludes>
+							<exclude>*.jks</exclude>
+							<exclude>*.png</exclude>
+						</excludes>
+					</resource>
+				</resources>
 				<plugins>
 					<plugin>
 						<groupId>io.fabric8</groupId>
