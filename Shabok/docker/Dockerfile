@@ -9,6 +9,6 @@
 #
 # docker run -i --rm -p 8081:8081 springboot/sample-demo
 ####
-FROM maven:3.8.1-openjdk-17-ubi8
+FROM ubi8/openjdk-17
 
 RUN mvn clean fabric8:deploy -Popenshift
