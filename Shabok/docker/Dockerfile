@@ -18,6 +18,6 @@ COPY pom.xml .
 RUN mvn dependency:go-offline
 
 COPY src src
-RUN mvn -X package -Dmaven.test.skip=true
+RUN mvn package -Dmaven.test.skip=true
 RUN mvn package fabric8:build
-RUN mvn -X clean fabric8:deploy -Popenshift
+RUN mvn clean fabric8:deploy -Popenshift
