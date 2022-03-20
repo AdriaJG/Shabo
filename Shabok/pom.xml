@@ -100,6 +100,8 @@
 								<dependency>
 									<groupId>org.springframework.cloud</groupId>
 									<artifactId>spring-cloud-kubernetes-fabric8-leader</artifactId>
+									<groupId>org.springframework.boot</groupId>
+									<artifactId>spring-boot-starter-web</artifactId>
 								</dependency>
 							</dependencies>
 							<images>
