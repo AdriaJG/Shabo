@@ -1,2 +1,3 @@
 #!/bin/bash
-mvn spring-boot:run
+mvn clean package spring-boot:repackage
+java -jar target/*.war
