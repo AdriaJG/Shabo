@@ -12,8 +12,7 @@
 FROM ubi8/openjdk-17
 USER root
 WORKDIR /deployments
-RUN touch run-java.sh
-RUN echo -e '#!/bin/bash\nmvn clean fabric8:deploy -Popenshift > run-java.sh'
+COPY run-java.sh .
 RUN chmod 775 run-java.sh
 
 # Build dependency offline to streamline build
