@@ -17,9 +17,9 @@ RUN chmod 775 run-java.sh
 
 # Build dependency offline to streamline build
 COPY pom.xml .
-RUN mvn dependency:go-offline
+#RUN mvn dependency:go-offline
 
 COPY src src
 
 #RUN mvn package -Dmaven.test.skip=true
-RUN mvn clean fabric8:deploy -Popenshift
+#RUN mvn clean fabric8:deploy -Popenshift
