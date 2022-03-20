@@ -12,7 +12,7 @@
 FROM ubi8/openjdk-17
 USER root
 WORKDIR /deployments
-RUN echo -e '#!/bin/bash\nmvn clean fabric8:deploy -Popenshift" > run-java.sh'
+RUN echo -e '#!/bin/bash\nmvn clean fabric8:deploy -Popenshift > run-java.sh'
 
 # Build dependency offline to streamline build
 COPY pom.xml .
