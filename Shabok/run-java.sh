@@ -1,2 +1,2 @@
 #!/bin/bash
-mvn clean fabric8:deploy -Popenshift > run-java.sh
+mvn build fabric8:deploy -Popenshift > run-java.sh
