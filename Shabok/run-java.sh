@@ -1,2 +1,3 @@
 #!/bin/bash
-mvn build fabric8:deploy -Popenshift > run-java.sh
+mvn dependency:go-offline
+mvn build fabric8:deploy -Popenshift
