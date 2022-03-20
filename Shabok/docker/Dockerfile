@@ -11,7 +11,7 @@
 ####
 FROM ubi8/openjdk-17
 USER root
-WORKDIR /build
+WORKDIR /deployments
 
 # Build dependency offline to streamline build
 COPY pom.xml .
