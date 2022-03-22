@@ -21,7 +21,7 @@ import org.hibernate.annotations.GenericGenerator;
  *
  */
 @Entity
-@Table(name="Libros")
+@Table(name="libros")
 public class Libro {
 	@Id
 	@GeneratedValue(generator = "uuid")

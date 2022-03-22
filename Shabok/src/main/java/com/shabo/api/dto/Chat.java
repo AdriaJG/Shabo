@@ -24,7 +24,7 @@ import com.shabo.api.statics.EstadoChat;
  *
  */
 @Entity
-@Table(name="Chatea")
+@Table(name="chatea")
 public class Chat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
