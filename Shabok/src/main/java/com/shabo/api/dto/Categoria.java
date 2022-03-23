@@ -5,6 +5,7 @@ package com.shabo.api.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,7 +31,7 @@ public class Categoria {
 	private String categoria;
 	@Column(name="descripcion")
 	private String descripcion;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "libro")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	private List<CategoriaLibro> libros;
 	
 	public Categoria(String categoria, String descripcion, List<CategoriaLibro> libros) {

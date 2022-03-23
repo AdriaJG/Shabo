@@ -5,6 +5,7 @@ package com.shabo.api.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,12 +17,15 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * @author Fenrir
  *
  */
 @Entity
 @Table(name="libros")
+@JsonIgnoreProperties({"listaPropietarios"})
 public class Libro {
 	@Id
 	@GeneratedValue(generator = "uuid")
@@ -33,13 +37,13 @@ public class Libro {
 	private String descripcion;
 	@Column(name="autor")
 	private String autor;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "libro")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	private List<UsuarioLibro> listaPropietarios;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "libro")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	private List<Comentario> comentarios;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "libro")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	private List<Valoracion> puntuaciones;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "libro")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	private List<CategoriaLibro> categorias;
 	
 	public Libro(String ISBN, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,

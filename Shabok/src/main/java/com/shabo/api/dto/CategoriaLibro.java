@@ -3,7 +3,9 @@
  */
 package com.shabo.api.dto;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -19,11 +21,11 @@ import javax.persistence.Table;
 @IdClass(CategoriaLibroID.class)
 public class CategoriaLibro {
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="ISBN")
 	private Libro libro;
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="categoria")
 	private Categoria categoria;
 	

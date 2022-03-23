@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * @author Fenrir
  *
@@ -36,17 +38,17 @@ public class Usuario {
 	private String nombre;
 	@Column(name="role")
 	String role;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "libro")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	private List<UsuarioLibro> listaLibros;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<Prestamo> prestamos;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<Comentario> comentarios;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<Valoracion> puntuaciones;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "emisor")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "emisor")
 	private List<Chat> chatsEnviados;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "receptor")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "receptor")
 	private List<Chat> chatsRecividos;
 
 	public Usuario(String password, String username, String nombre, String role, List<UsuarioLibro> listaLibros,

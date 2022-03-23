@@ -5,6 +5,8 @@ package com.shabo.api.dto;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -13,10 +15,10 @@ import javax.persistence.ManyToOne;
  *
  */
 public class CategoriaLibroID implements Serializable {
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="ISBN")
 	private Libro libro;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="categoria")
 	private Categoria categoria;
 	

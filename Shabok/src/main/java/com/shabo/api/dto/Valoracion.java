@@ -5,8 +5,10 @@ package com.shabo.api.dto;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,12 +16,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * @author Fenrir
  *
  */
 @Entity
 @Table(name="valoracion")
+@JsonIgnoreProperties({"libro", "usuario_id"})
 public class Valoracion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,10 +33,10 @@ public class Valoracion {
 	private int valoracion;
 	@Column(name="num_votos")
 	private int numVotos;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="ISBN")
 	private Libro libro;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 	

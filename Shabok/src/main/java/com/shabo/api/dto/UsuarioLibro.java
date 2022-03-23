@@ -5,6 +5,7 @@ package com.shabo.api.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author Fenrir
@@ -25,13 +28,13 @@ public class UsuarioLibro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="ISBN")
 	private Libro libro;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<Prestamo> prestamos;
 	
 	public UsuarioLibro(Libro libro, Usuario usuario, List<Prestamo> prestamos) {
