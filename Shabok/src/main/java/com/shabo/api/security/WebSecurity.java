@@ -52,7 +52,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.cors().and()
 			.csrf().disable()
-			.authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL, REGISTER_URL).permitAll()
+			.authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL, REGISTER_URL, "/libros").permitAll()
 			.anyRequest().authenticated().and()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager()))
 				.addFilter(new JWTAuthorizationFilter(authenticationManager()));
