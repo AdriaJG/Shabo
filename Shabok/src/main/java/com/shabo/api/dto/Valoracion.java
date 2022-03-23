@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * @author Fenrir
@@ -35,9 +36,11 @@ public class Valoracion {
 	private int numVotos;
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="ISBN")
+	@JsonManagedReference
 	private Libro libro;
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="usuario_id")
+	@JsonManagedReference
 	private Usuario usuario;
 	
 	public Valoracion(int valoracion, int numVotos, Libro libro, Usuario usuario) {

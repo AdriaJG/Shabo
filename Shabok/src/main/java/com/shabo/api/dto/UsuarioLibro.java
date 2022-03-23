@@ -16,7 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * @author Fenrir
@@ -24,18 +25,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @Entity
 @Table(name="usuariolibro")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "libro", "usuario"})
 public class UsuarioLibro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="ISBN")
+	@JsonManagedReference
 	private Libro libro;
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="usuario_id")
+	@JsonManagedReference
 	private Usuario usuario;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "usuario")
+	@JsonBackReference
 	private List<Prestamo> prestamos;
 	
 	public UsuarioLibro(Libro libro, Usuario usuario, List<Prestamo> prestamos) {
