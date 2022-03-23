@@ -21,5 +21,6 @@ COPY pom.xml .
 
 COPY src src
 
+RUN mvn clean package spring-boot:repackage
 #RUN mvn package -Dmaven.test.skip=true
 #RUN mvn clean fabric8:deploy -Popenshift
