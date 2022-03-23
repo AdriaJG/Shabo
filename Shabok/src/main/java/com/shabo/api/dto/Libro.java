@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @Entity
 @Table(name="libros")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","listaPropietarios"})
 public class Libro {
 	@Id
 	@GeneratedValue(generator = "uuid")
