@@ -28,7 +28,7 @@ import com.shabo.api.statics.EstadoChat;
  *
  */
 @Entity
-@Table(name="chatea")
+@Table(name="Chatea")
 @JsonIdentityInfo(
 		  generator = ObjectIdGenerators.PropertyGenerator.class, 
 		  property = "id")
