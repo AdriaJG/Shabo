@@ -12,6 +12,7 @@
 FROM ubi8/openjdk-17
 USER root
 WORKDIR /deployments
+EXPOSE 8443
 COPY run-java.sh .
 RUN chmod 775 run-java.sh
 
