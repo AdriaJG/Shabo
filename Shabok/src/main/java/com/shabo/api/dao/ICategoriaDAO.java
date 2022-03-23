@@ -11,6 +11,6 @@ import com.shabo.api.dto.Categoria;
  * @author Fenrir
  *
  */
-public interface ICategoriaDAO extends JpaRepository<Categoria, Integer> {
+public interface ICategoriaDAO extends JpaRepository<Categoria,  Long > {
 
 }

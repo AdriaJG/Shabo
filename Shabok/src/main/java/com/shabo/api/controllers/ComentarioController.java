@@ -39,7 +39,7 @@ public class ComentarioController {
 	}
 
 	@GetMapping("/comentarios/{id}")
-	public Comentario mostrarComentarioID(@PathVariable(name = "id") int id) {
+	public Comentario mostrarComentarioID(@PathVariable(name = "id") long id) {
 		return comentariosServiceImpl.mostrarComentarioID(id);
 	}
 
@@ -49,7 +49,7 @@ public class ComentarioController {
 	}
 
 	@PostMapping("/comentarios/modificar/{id}")
-	public Comentario modificarComentario(@PathVariable(name = "id") int id, @RequestBody String comentario,
+	public Comentario modificarComentario(@PathVariable(name = "id") long id, @RequestBody String comentario,
 			Authentication authentication) {
 
 		this.verificador.SetUsuarioAuth(authentication);
@@ -66,7 +66,7 @@ public class ComentarioController {
 	}
 
 	@DeleteMapping("comentario/eliminar/{id}")
-	public void eliminarEquioi(@PathVariable(name = "id") int id, Authentication authentication) {
+	public void eliminarEquioi(@PathVariable(name = "id") long id, Authentication authentication) {
 		this.verificador.SetUsuarioAuth(authentication);
 		if (verificador.isRecursoPropietario(comentariosServiceImpl.mostrarComentarioID(id).getUsuario())) {
 			comentariosServiceImpl.eliminarComentario(id);

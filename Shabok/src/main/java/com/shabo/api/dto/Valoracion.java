@@ -33,11 +33,11 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 public class Valoracion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	@Column(name="valoracion")
-	private int valoracion;
+	private long valoracion;
 	@Column(name="num_votos")
-	private int numVotos;
+	private long numVotos;
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="ISBN")
 	private Libro libro;
@@ -45,7 +45,7 @@ public class Valoracion {
 	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 	
-	public Valoracion(int valoracion, int numVotos, Libro libro, Usuario usuario) {
+	public Valoracion(long valoracion, long numVotos, Libro libro, Usuario usuario) {
 		super();
 		this.valoracion = valoracion;
 		this.numVotos = numVotos;
@@ -57,27 +57,27 @@ public class Valoracion {
 		super();
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public int getValoracion() {
+	public long getValoracion() {
 		return valoracion;
 	}
 
-	public void setValoracion(int valoracion) {
+	public void setValoracion(long valoracion) {
 		this.valoracion = valoracion;
 	}
 
-	public int getNumVotos() {
+	public long getNumVotos() {
 		return numVotos;
 	}
 
-	public void setNumVotos(int numVotos) {
+	public void setNumVotos(long numVotos) {
 		this.numVotos = numVotos;
 	}
 

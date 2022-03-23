@@ -42,7 +42,7 @@ public class ChatController {
 	}
 	
 	@GetMapping("/chats/{id}")
-	public Chat mostrarChatID(@PathVariable(name="id") int id){
+	public Chat mostrarChatID(@PathVariable(name="id") long id){
 		return chatsServiceImpl.mostrarChatID(id);
 	}
 	
@@ -59,7 +59,7 @@ public class ChatController {
 	}
 	
 	@DeleteMapping("chat/eliminar/{id}")
-	public void eliminarEquioi(@PathVariable(name="id") int id) {
+	public void eliminarEquioi(@PathVariable(name="id") long id) {
 		chatsServiceImpl.eliminarChat(id);
 		
 	}

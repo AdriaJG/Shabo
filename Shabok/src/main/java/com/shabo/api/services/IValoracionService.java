@@ -14,11 +14,11 @@ import com.shabo.api.dto.Valoracion;
 public interface IValoracionService {
 	public List<Valoracion> mostrarValoracions();
 	
-	public  Valoracion mostrarValoracionID(int id);
+	public  Valoracion mostrarValoracionID(long id);
 	
 	public Valoracion crearValoracion(Valoracion valoracion);
 	
 	public Valoracion modificarValoracion(Valoracion valoracion);
 	
-	public void eliminarValoracion(int id);
+	public void eliminarValoracion(long id);
 }

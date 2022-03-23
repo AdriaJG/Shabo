@@ -14,7 +14,7 @@ import com.shabo.api.dto.Usuario;
 public interface IUsuarioService {
 	public List<Usuario> mostrarUsuarios();
 	
-	public Usuario mostrarUsuarioID(int id);
+	public Usuario mostrarUsuarioID(long id);
 	
 	public Usuario buscarUsuarioNombre(String nombre);
 	
@@ -24,5 +24,5 @@ public interface IUsuarioService {
 	
 	public Usuario modificarUsuario(Usuario usuario);
 	
-	public void eliminarUsuario(int id);
+	public void eliminarUsuario(long id);
 }

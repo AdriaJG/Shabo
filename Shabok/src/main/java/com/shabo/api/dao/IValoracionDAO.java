@@ -11,6 +11,6 @@ import com.shabo.api.dto.Valoracion;
  * @author Fenrir
  *
  */
-public interface IValoracionDAO extends JpaRepository<Valoracion, Integer> {
+public interface IValoracionDAO extends JpaRepository<Valoracion,  Long > {
 
 }

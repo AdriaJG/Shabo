@@ -11,6 +11,6 @@ import com.shabo.api.dto.Prestamo;
  * @author Fenrir
  *
  */
-public interface IPrestamoDAO extends JpaRepository<Prestamo, Integer> {
+public interface IPrestamoDAO extends JpaRepository<Prestamo,  Long > {
 
 }

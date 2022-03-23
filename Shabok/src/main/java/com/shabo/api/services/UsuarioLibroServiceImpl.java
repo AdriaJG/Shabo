@@ -28,7 +28,7 @@ public class UsuarioLibroServiceImpl implements IUsuarioLibroService {
 	}
 
 	@Override
-	public UsuarioLibro mostrarUsuarioLibroID(int id) {
+	public UsuarioLibro mostrarUsuarioLibroID(long id) {
 		// TODO Auto-generated method stub
 		return iUsuarioLibroDAO.findById(id).get();
 	}
@@ -46,7 +46,7 @@ public class UsuarioLibroServiceImpl implements IUsuarioLibroService {
 	}
 
 	@Override
-	public void eliminarUsuarioLibro(int id) {
+	public void eliminarUsuarioLibro(long id) {
 		iUsuarioLibroDAO.deleteById(id);
 		
 	}

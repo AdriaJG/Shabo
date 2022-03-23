@@ -28,7 +28,7 @@ public class ValoracionServiceImpl implements IValoracionService {
 	}
 
 	@Override
-	public Valoracion mostrarValoracionID(int id) {
+	public Valoracion mostrarValoracionID(long id) {
 		// TODO Auto-generated method stub
 		return iValoracionDAO.findById(id).get();
 	}
@@ -46,7 +46,7 @@ public class ValoracionServiceImpl implements IValoracionService {
 	}
 
 	@Override
-	public void eliminarValoracion(int id) {
+	public void eliminarValoracion(long id) {
 		iValoracionDAO.deleteById(id);
 		
 	}

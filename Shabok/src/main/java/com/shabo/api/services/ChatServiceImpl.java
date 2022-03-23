@@ -28,7 +28,7 @@ public class ChatServiceImpl implements IChatService {
 	}
 
 	@Override
-	public Chat mostrarChatID(int id) {
+	public Chat mostrarChatID(long id) {
 		// TODO Auto-generated method stub
 		return iChatDAO.findById(id).get();
 	}
@@ -46,7 +46,7 @@ public class ChatServiceImpl implements IChatService {
 	}
 
 	@Override
-	public void eliminarChat(int id) {
+	public void eliminarChat(long id) {
 		iChatDAO.deleteById(id);
 		
 	}

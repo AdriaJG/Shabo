@@ -18,7 +18,7 @@ public class ReadLog {
 
 		final Map<String, Long> tableMap = new HashMap<String, Long>();
 		BinaryLogClient client = new BinaryLogClient(System.getenv("MYSQL_HOST"),
-				Integer.valueOf(System.getenv("MYSQL_PORT")), System.getenv("MYSQL_REPLICATION_USER"),
+				 Integer.valueOf(System.getenv("MYSQL_PORT")), System.getenv("MYSQL_REPLICATION_USER"),
 				System.getenv("MYSQL_REPLICATION_PASSWORD"));
 		Pusher pusher = new Pusher("1365332", "5a6efca0471ef02c22de", "1f6dfd84bd08bf624cb1");
 		pusher.setCluster("eu");

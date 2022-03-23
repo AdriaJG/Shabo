@@ -11,7 +11,7 @@ import com.shabo.api.dto.Usuario;
  * @author Fenrir
  *
  */
-public interface IUsuarioDAO extends JpaRepository<Usuario, Integer> {
+public interface IUsuarioDAO extends JpaRepository<Usuario,  Long > {
 	Usuario findByUsername(String nombre);
 	Usuario findByNombre(String nombre);
 }

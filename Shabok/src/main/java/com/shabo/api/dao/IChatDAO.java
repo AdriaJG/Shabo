@@ -11,6 +11,6 @@ import com.shabo.api.dto.Chat;
  * @author Fenrir
  *
  */
-public interface IChatDAO extends JpaRepository<Chat, Integer> {
+public interface IChatDAO extends JpaRepository<Chat,  Long > {
 
 }

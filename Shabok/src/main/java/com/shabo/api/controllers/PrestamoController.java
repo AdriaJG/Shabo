@@ -37,7 +37,7 @@ public class PrestamoController {
 	}
 	
 	@GetMapping("/prestamos/{id}")
-	public Prestamo mostrarPrestamoID(@PathVariable(name="id") int id){
+	public Prestamo mostrarPrestamoID(@PathVariable(name="id") long id){
 		return prestamosServiceImpl.mostrarPrestamoID(id);
 	}
 	
@@ -47,7 +47,7 @@ public class PrestamoController {
 	}
 	
 	@PostMapping("/prestamos/modificar/{id}")
-	public Prestamo modificarPrestamo(@PathVariable(name="id") int id, @RequestBody String prestamo) {
+	public Prestamo modificarPrestamo(@PathVariable(name="id") long id, @RequestBody String prestamo) {
 		Prestamo prestamoSeleccionado = new Prestamo();
 		Prestamo prestamoModificado = new Prestamo();
 		
@@ -58,7 +58,7 @@ public class PrestamoController {
 	}
 	
 	@DeleteMapping("prestamo/eliminar/{id}")
-	public void eliminarEquioi(@PathVariable(name="id") int id) {
+	public void eliminarEquioi(@PathVariable(name="id") long id) {
 		prestamosServiceImpl.eliminarPrestamo(id);
 		
 	}

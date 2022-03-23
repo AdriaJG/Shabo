@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 public class Prestamo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="propietario_id")
 	private UsuarioLibro libro;
@@ -49,7 +49,7 @@ public class Prestamo {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaFin;
 
-	public Prestamo(int id, UsuarioLibro libro, Usuario usuario, Date fechaInicio, Date fechaFin) {
+	public Prestamo(long id, UsuarioLibro libro, Usuario usuario, Date fechaInicio, Date fechaFin) {
 		super();
 		this.id = id;
 		this.libro = libro;
@@ -62,11 +62,11 @@ public class Prestamo {
 		super();
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

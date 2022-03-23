@@ -14,11 +14,11 @@ import com.shabo.api.dto.Comentario;
 public interface IComentarioService {
 	public List<Comentario> mostrarComentarios();
 	
-	public  Comentario mostrarComentarioID(int id);
+	public  Comentario mostrarComentarioID(long id);
 	
 	public Comentario crearComentario(Comentario comentario);
 	
 	public Comentario modificarComentario(Comentario comentario);
 	
-	public void eliminarComentario(int id);
+	public void eliminarComentario(long id);
 }

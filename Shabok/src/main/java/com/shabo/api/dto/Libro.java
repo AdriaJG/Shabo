@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 public class Libro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ISBN;
+	private long ISBN;
 	@Column(name="titulo")
 	private String titulo;
 	@Column(name="descripcion")
@@ -53,7 +53,7 @@ public class Libro {
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	private List<CategoriaLibro> categorias;
 	
-	public Libro(int ISBN, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
+	public Libro(long ISBN, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
 			List<Comentario> comentarios, List<Valoracion> puntuaciones, List<CategoriaLibro> categorias) {
 		super();
 		this.ISBN = ISBN;
@@ -70,11 +70,11 @@ public class Libro {
 		super();
 	}
 	@JsonAnyGetter
-	public int getISBN() {
+	public long getISBN() {
 		return this.ISBN;
 	}
 	@JsonAnySetter
-	public void setISBN(int iSBN) {
+	public void setISBN(long iSBN) {
 		ISBN = iSBN;
 	}
 

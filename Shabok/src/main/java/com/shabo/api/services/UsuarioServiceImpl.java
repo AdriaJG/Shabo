@@ -28,7 +28,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	}
 
 	@Override
-	public Usuario mostrarUsuarioID(int id) {
+	public Usuario mostrarUsuarioID(long id) {
 		// TODO Auto-generated method stub
 		return iUsuarioDAO.findById(id).get();
 	}
@@ -46,7 +46,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	}
 
 	@Override
-	public void eliminarUsuario(int id) {
+	public void eliminarUsuario(long id) {
 		iUsuarioDAO.deleteById(id);
 		
 	}

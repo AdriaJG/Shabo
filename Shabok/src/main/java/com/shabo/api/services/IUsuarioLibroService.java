@@ -14,11 +14,11 @@ import com.shabo.api.dto.UsuarioLibro;
 public interface IUsuarioLibroService {
 	public List<UsuarioLibro> mostrarUsuarioLibros();
 	
-	public UsuarioLibro mostrarUsuarioLibroID(int id);
+	public UsuarioLibro mostrarUsuarioLibroID(long id);
 	
 	public UsuarioLibro crearUsuarioLibro(UsuarioLibro propietario);
 	
 	public UsuarioLibro modificarUsuarioLibro(UsuarioLibro propietario);
 	
-	public void eliminarUsuarioLibro(int id);
+	public void eliminarUsuarioLibro(long id);
 }

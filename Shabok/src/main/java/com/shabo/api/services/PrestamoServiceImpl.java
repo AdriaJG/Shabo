@@ -28,7 +28,7 @@ public class PrestamoServiceImpl implements IPrestamoService {
 	}
 
 	@Override
-	public Prestamo mostrarPrestamoID(int id) {
+	public Prestamo mostrarPrestamoID(long id) {
 		// TODO Auto-generated method stub
 		return iPrestamoDAO.findById(id).get();
 	}
@@ -46,7 +46,7 @@ public class PrestamoServiceImpl implements IPrestamoService {
 	}
 
 	@Override
-	public void eliminarPrestamo(int id) {
+	public void eliminarPrestamo(long id) {
 		iPrestamoDAO.deleteById(id);
 		
 	}

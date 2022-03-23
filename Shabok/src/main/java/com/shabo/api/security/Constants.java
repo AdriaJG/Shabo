@@ -18,7 +18,7 @@ public class Constants {
 
 		public static final String ISSUER_INFO = System.getenv("ISSUER_INFO");
 		public static final String SUPER_SECRET_KEY = System.getenv("SUPER_SECRET_KEY");
-		public static final long TOKEN_EXPIRATION_TIME = Long.valueOf(System.getenv("TOKEN_EXPIRATION_TIME")); // 10 da
+		public static final int TOKEN_EXPIRATION_TIME = Integer.valueOf(System.getenv("TOKEN_EXPIRATION_TIME")); // 10 da
 
 		//Pusher
 		

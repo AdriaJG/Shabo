@@ -14,11 +14,11 @@ import com.shabo.api.dto.Prestamo;
 public interface IPrestamoService {
 	public List<Prestamo> mostrarPrestamos();
 	
-	public  Prestamo mostrarPrestamoID(int id);
+	public  Prestamo mostrarPrestamoID(long id);
 	
 	public Prestamo crearPrestamo(Prestamo prestamo);
 	
 	public Prestamo modificarPrestamo(Prestamo prestamot);
 	
-	public void eliminarPrestamo(int id);
+	public void eliminarPrestamo(long id);
 }

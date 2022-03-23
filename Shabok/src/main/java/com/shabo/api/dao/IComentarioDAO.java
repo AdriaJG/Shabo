@@ -11,6 +11,6 @@ import com.shabo.api.dto.Comentario;
  * @author Fenrir
  *
  */
-public interface IComentarioDAO extends JpaRepository<Comentario, Integer> {
+public interface IComentarioDAO extends JpaRepository<Comentario,  Long > {
 
 }

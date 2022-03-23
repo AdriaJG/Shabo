@@ -16,13 +16,13 @@ import com.shabo.api.dto.Usuario;
 public interface ILibroService {
 	public List<Libro> mostrarLibros();
 	
-	public  Libro mostrarLibroID(int id);
+	public  Libro mostrarLibroID(long id);
 	
 	public Libro crearLibro(Libro libro);
 	
 	public Libro modificarLibro(Libro libro);
 	
-	public void eliminarLibro(int id);
+	public void eliminarLibro(long id);
 	
 	public boolean esPropietario(Libro libro, Usuario usuario);
 }

@@ -39,7 +39,7 @@ public class UsuarioLibroController {
 	}
 
 	@GetMapping("/usuarioLibros/{id}")
-	public UsuarioLibro mostrarUsuarioLibroID(@PathVariable(name = "id") int id) {
+	public UsuarioLibro mostrarUsuarioLibroID(@PathVariable(name = "id") long id) {
 		return usuarioLibrosServiceImpl.mostrarUsuarioLibroID(id);
 	}
 
@@ -49,7 +49,7 @@ public class UsuarioLibroController {
 	}
 
 	@PostMapping("/usuarioLibros/modificar/{id}")
-	public UsuarioLibro modificarUsuarioLibro(@PathVariable(name = "id") int id, @RequestBody UsuarioLibro usuarioLibro,
+	public UsuarioLibro modificarUsuarioLibro(@PathVariable(name = "id") long id, @RequestBody UsuarioLibro usuarioLibro,
 			Authentication authentication) {
 
 		this.verificador.SetUsuarioAuth(authentication);
@@ -67,7 +67,7 @@ public class UsuarioLibroController {
 	}
 
 	@DeleteMapping("usuarioLibro/eliminar/{id}")
-	public void eliminarUsuarioLibro(@PathVariable(name = "id") int id, Authentication authentication) {
+	public void eliminarUsuarioLibro(@PathVariable(name = "id") long id, Authentication authentication) {
 		this.verificador.SetUsuarioAuth(authentication);
 		if(this.verificador.isRecursoPropietario(usuarioLibrosServiceImpl.mostrarUsuarioLibroID(id).getUsuario())) {
 		usuarioLibrosServiceImpl.eliminarUsuarioLibro(id);

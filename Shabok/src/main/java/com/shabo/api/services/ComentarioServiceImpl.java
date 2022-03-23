@@ -28,7 +28,7 @@ public class ComentarioServiceImpl implements IComentarioService {
 	}
 
 	@Override
-	public Comentario mostrarComentarioID(int id) {
+	public Comentario mostrarComentarioID(long id) {
 		// TODO Auto-generated method stub
 		return iComentarioDAO.findById(id).get();
 	}
@@ -46,7 +46,7 @@ public class ComentarioServiceImpl implements IComentarioService {
 	}
 
 	@Override
-	public void eliminarComentario(int id) {
+	public void eliminarComentario(long id) {
 		iComentarioDAO.deleteById(id);
 		
 	}

@@ -11,6 +11,6 @@ import com.shabo.api.dto.UsuarioLibro;
  * @author Fenrir
  *
  */
-public interface IUsuarioLibroDAO extends JpaRepository<UsuarioLibro, Integer> {
+public interface IUsuarioLibroDAO extends JpaRepository<UsuarioLibro,  Long > {
 
 }

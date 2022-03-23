@@ -14,11 +14,11 @@ import com.shabo.api.dto.Chat;
 public interface IChatService {
 	public List<Chat> mostrarChats();
 	
-	public  Chat mostrarChatID(int id);
+	public  Chat mostrarChatID(long id);
 	
 	public Chat crearChat(Chat chat);
 	
 	public Chat modificarChat(Chat chat);
 	
-	public void eliminarChat(int id);
+	public void eliminarChat(long id);
 }

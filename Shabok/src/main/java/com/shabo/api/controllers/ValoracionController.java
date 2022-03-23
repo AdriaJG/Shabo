@@ -39,7 +39,7 @@ public class ValoracionController {
 	}
 
 	@GetMapping("/valoraciones/{id}")
-	public Valoracion mostrarValoracionID(@PathVariable(name = "id") int id) {
+	public Valoracion mostrarValoracionID(@PathVariable(name = "id") long id) {
 		return valoracionesServiceImpl.mostrarValoracionID(id);
 	}
 
@@ -49,7 +49,7 @@ public class ValoracionController {
 	}
 
 	@PostMapping("/valoraciones/modificar/{id}")
-	public Valoracion modificarValoracion(@PathVariable(name = "id") int id, @RequestBody Valoracion valoracion,
+	public Valoracion modificarValoracion(@PathVariable(name = "id") long id, @RequestBody Valoracion valoracion,
 			Authentication authentication) {
 
 		this.verificador.SetUsuarioAuth(authentication);
@@ -65,7 +65,7 @@ public class ValoracionController {
 	}
 
 	@DeleteMapping("valoracion/eliminar/{id}")
-	public void eliminarEquioi(@PathVariable(name = "id") int id, Authentication authentication) {
+	public void eliminarEquioi(@PathVariable(name = "id") long id, Authentication authentication) {
 		this.verificador.SetUsuarioAuth(authentication);
 		if (verificador.isRecursoPropietario(valoracionesServiceImpl.mostrarValoracionID(id).getUsuario())) {
 			valoracionesServiceImpl.eliminarValoracion(id);
