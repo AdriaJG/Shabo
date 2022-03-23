@@ -18,12 +18,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * @author Fenrir
  *
  */
 @Entity
 @Table(name="prestamo")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Prestamo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
