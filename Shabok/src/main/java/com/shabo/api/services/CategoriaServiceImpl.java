@@ -28,7 +28,7 @@ public class CategoriaServiceImpl implements ICategoriaService {
 	}
 
 	@Override
-	public Categoria mostrarCategoriaID(String id) {
+	public Categoria mostrarCategoriaID(int id) {
 		// TODO Auto-generated method stub
 		return iCategoriaDAO.findById(id).get();
 	}
@@ -46,7 +46,7 @@ public class CategoriaServiceImpl implements ICategoriaService {
 	}
 
 	@Override
-	public void eliminarCategoria(String id) {
+	public void eliminarCategoria(int id) {
 		iCategoriaDAO.deleteById(id);
 		
 	}

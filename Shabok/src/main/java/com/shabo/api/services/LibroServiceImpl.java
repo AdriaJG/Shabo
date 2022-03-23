@@ -32,7 +32,7 @@ public class LibroServiceImpl implements ILibroService {
 	}
 
 	@Override
-	public Libro mostrarLibroID(String id) {
+	public Libro mostrarLibroID(int id) {
 		// TODO Auto-generated method stub
 		return iLibroDAO.findById(id).get();
 	}
@@ -50,7 +50,7 @@ public class LibroServiceImpl implements ILibroService {
 	}
 
 	@Override
-	public void eliminarLibro(String id) {
+	public void eliminarLibro(int id) {
 		iLibroDAO.deleteById(id);
 		
 	}

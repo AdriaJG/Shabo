@@ -11,6 +11,6 @@ import com.shabo.api.dto.Libro;
  * @author Fenrir
  *
  */
-public interface ILibroDAO extends JpaRepository<Libro, String> {
+public interface ILibroDAO extends JpaRepository<Libro, Integer> {
 
 }

@@ -38,7 +38,7 @@ public class LibroController {
 	}
 	
 	@GetMapping("/libros/{id}")
-	public Libro mostrarLibroID(@PathVariable(name="id") String id){
+	public Libro mostrarLibroID(@PathVariable(name="id") int id){
 		return librosServiceImpl.mostrarLibroID(id);
 	}
 	
@@ -48,7 +48,7 @@ public class LibroController {
 	}
 	
 	@PostMapping("/libros/modificar/{id}")
-	public Libro modificarLibro(@PathVariable(name="id") String id, @RequestBody Libro libro) {
+	public Libro modificarLibro(@PathVariable(name="id") int id, @RequestBody Libro libro) {
 		Libro libroSeleccionado = new Libro();
 		Libro libroModificado = new Libro();
 		
@@ -61,7 +61,7 @@ public class LibroController {
 	}
 	
 	@DeleteMapping("libro/eliminar/{id}")
-	public void eliminarEquioi(@PathVariable(name="id") String id) {
+	public void eliminarEquioi(@PathVariable(name="id") int id) {
 		librosServiceImpl.eliminarLibro(id);
 		
 	}

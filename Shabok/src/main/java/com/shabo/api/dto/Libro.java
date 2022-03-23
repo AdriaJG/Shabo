@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -17,7 +18,10 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -29,12 +33,11 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Table(name="libros")
 @JsonIdentityInfo(
 		  generator = ObjectIdGenerators.PropertyGenerator.class, 
-		  property = "id")
+		  property = "ISBN")
 public class Libro {
 	@Id
-	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "uuid2")
-	private String ISBN;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int ISBN;
 	@Column(name="titulo")
 	private String titulo;
 	@Column(name="descripcion")
@@ -50,7 +53,7 @@ public class Libro {
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	private List<CategoriaLibro> categorias;
 	
-	public Libro(String ISBN, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
+	public Libro(int ISBN, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
 			List<Comentario> comentarios, List<Valoracion> puntuaciones, List<CategoriaLibro> categorias) {
 		super();
 		this.ISBN = ISBN;
@@ -66,12 +69,12 @@ public class Libro {
 	public Libro() {
 		super();
 	}
-
-	public String getISBN() {
-		return ISBN;
+	@JsonAnyGetter
+	public int getISBN() {
+		return this.ISBN;
 	}
-
-	public void setISBN(String iSBN) {
+	@JsonAnySetter
+	public void setISBN(int iSBN) {
 		ISBN = iSBN;
 	}
 
@@ -122,7 +125,7 @@ public class Libro {
 	public void setPuntuaciones(List<Valoracion> puntuaciones) {
 		this.puntuaciones = puntuaciones;
 	}
-
+	
 	public List<CategoriaLibro> getCategorias() {
 		return categorias;
 	}

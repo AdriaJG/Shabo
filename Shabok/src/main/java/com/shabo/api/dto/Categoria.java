@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -32,8 +33,9 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 		  property = "categoria")
 public class Categoria {
 	@Id
-	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@Column(name="categoria")
 	private String categoria;
 	@Column(name="descripcion")
 	private String descripcion;

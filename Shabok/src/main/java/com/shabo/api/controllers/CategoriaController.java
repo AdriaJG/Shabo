@@ -37,7 +37,7 @@ public class CategoriaController {
 	}
 	
 	@GetMapping("/categorias/{id}")
-	public Categoria mostrarCategoriaID(@PathVariable(name="id") String id){
+	public Categoria mostrarCategoriaID(@PathVariable(name="id") int id){
 		return categoriasServiceImpl.mostrarCategoriaID(id);
 	}
 	
@@ -47,7 +47,7 @@ public class CategoriaController {
 	}
 	
 	@PostMapping("/categorias/modificar/{id}")
-	public Categoria modificarCategoria(@PathVariable(name="id") String id, @RequestBody Categoria categoria) {
+	public Categoria modificarCategoria(@PathVariable(name="id") int id, @RequestBody Categoria categoria) {
 		Categoria categoriaSeleccionado = new Categoria();
 		Categoria categoriaModificado = new Categoria();
 		
@@ -59,7 +59,7 @@ public class CategoriaController {
 	}
 	
 	@DeleteMapping("categoria/eliminar/{id}")
-	public void eliminarEquioi(@PathVariable(name="id") String id) {
+	public void eliminarEquioi(@PathVariable(name="id") int id) {
 		categoriasServiceImpl.eliminarCategoria(id);
 		
 	}

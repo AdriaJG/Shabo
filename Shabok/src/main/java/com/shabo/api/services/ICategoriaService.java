@@ -14,11 +14,11 @@ import com.shabo.api.dto.Categoria;
 public interface ICategoriaService {
 	public List<Categoria> mostrarCategorias();
 	
-	public  Categoria mostrarCategoriaID(String id);
+	public  Categoria mostrarCategoriaID(int id);
 	
 	public Categoria crearCategoria(Categoria categoria);
 	
 	public Categoria modificarCategoria(Categoria categoria);
 	
-	public void eliminarCategoria(String id);
+	public void eliminarCategoria(int id);
 }
