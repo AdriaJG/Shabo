@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 /**
  * @author Fenrir
  *
@@ -19,6 +22,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="categorialibro")
 @IdClass(CategoriaLibroID.class)
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "ISBN")
 public class CategoriaLibro {
 	@Id
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)

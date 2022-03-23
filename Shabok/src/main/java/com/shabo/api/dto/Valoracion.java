@@ -16,7 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
  * @author Fenrir
@@ -25,6 +27,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name="valoracion")
 @JsonIgnoreProperties({"libro", "usuario_id"})
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "id")
 public class Valoracion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

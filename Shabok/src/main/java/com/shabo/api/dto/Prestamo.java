@@ -18,7 +18,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
  * @author Fenrir
@@ -27,6 +29,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name="prestamo")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "id")
 public class Prestamo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

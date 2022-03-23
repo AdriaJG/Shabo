@@ -18,12 +18,18 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 /**
  * @author Fenrir
  *
  */
 @Entity
 @Table(name="categorias")
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "categoria")
 public class Categoria {
 	@Id
 	@GeneratedValue(generator = "uuid")
