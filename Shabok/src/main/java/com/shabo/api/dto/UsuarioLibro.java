@@ -16,9 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 /**
  * @author Fenrir
  *
@@ -31,14 +28,11 @@ public class UsuarioLibro {
 	private int id;
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="ISBN")
-	@JsonManagedReference
 	private Libro libro;
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinColumn(name="usuario_id")
-	@JsonManagedReference
 	private Usuario usuario;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "usuario")
-	@JsonBackReference
 	private List<Prestamo> prestamos;
 	
 	public UsuarioLibro(Libro libro, Usuario usuario, List<Prestamo> prestamos) {
