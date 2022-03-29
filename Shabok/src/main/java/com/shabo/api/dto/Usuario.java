@@ -18,6 +18,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -27,16 +28,14 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  */
 @Entity
 @Table(name="Usuarios")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@JsonIdentityInfo(
-		  generator = ObjectIdGenerators.PropertyGenerator.class, 
-		  property = "id")
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@JsonIgnore
 	@Column(name="password")
 	private String password;
+	@JsonIgnore
 	@Column(name="username")
 	private String username;
 	@Column(name="email")
@@ -46,17 +45,22 @@ public class Usuario {
 	@Column(name="role")
 	String role;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
-	@JsonBackReference
+	@JsonIgnore
 	private List<UsuarioLibro> listaLibros;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "usuario")
+	@JsonIgnore
 	private List<Prestamo> prestamos;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "usuario")
+	@JsonIgnore
 	private List<Comentario> comentarios;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "usuario")
+	@JsonIgnore
 	private List<Valoracion> puntuaciones;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "emisor")
+	@JsonIgnore
 	private List<Chat> chatsEnviados;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "receptor")
+	@JsonIgnore
 	private List<Chat> chatsRecividos;
 
 	public Usuario(String password, String username, String nombre, String role, List<UsuarioLibro> listaLibros,

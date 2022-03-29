@@ -31,7 +31,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  */
 @Entity
 @Table(name="Libros")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Libro {
 	
 	@Id
@@ -44,12 +43,16 @@ public class Libro {
 	@Column(name="autor")
 	private String autor;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
+	@JsonIgnore
 	private List<UsuarioLibro> listaPropietarios;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
+	@JsonIgnore
 	private List<Comentario> comentarios;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
+	@JsonIgnore
 	private List<Valoracion> puntuaciones;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
+	@JsonIgnore
 	private List<CategoriaLibro> categorias;
 	
 	public Libro(long ISBN, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
