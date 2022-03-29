@@ -36,8 +36,7 @@ public class SwaggerConfig {
 				"https://api.shabok.es/terms",
 				new Contact("Codmind", "https://codmind.com", "apis@codmind.com"),
 				"LICENSE",
-				"LICENSE URL",
-				Collections.emptyList()
+				"LICENSE URL"
 				);
 	}
 }
