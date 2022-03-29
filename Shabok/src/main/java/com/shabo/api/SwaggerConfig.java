@@ -34,9 +34,9 @@ public class SwaggerConfig {
 				"Order Service API Description",
 				"1.0",
 				"https://api.shabok.es/terms",
-				new Contact("Codmind", "https://codmind.com", "apis@codmind.com"),
+				new Contact("Shabok", "https://api.shabok.es", "apis@shabok.es"),
 				"LICENSE",
-				"LICENSE URL"
+				"LICENSE URL", null
 				);
 	}
 }

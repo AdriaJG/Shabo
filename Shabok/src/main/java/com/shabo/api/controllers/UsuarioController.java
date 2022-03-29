@@ -111,7 +111,7 @@ public class UsuarioController {
 		for (int i = 0; i < datos.getListaLibros().size(); i++) {
 			libros.add(datos.getListaLibros().get(i).getLibro());
 		}
-		return datos.getUsername();
+		return datos.getListaLibros().get(0).getLibro().getTitulo();
 		
 	}
 	
