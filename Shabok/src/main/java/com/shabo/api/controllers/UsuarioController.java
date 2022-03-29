@@ -61,17 +61,6 @@ public class UsuarioController {
 	      .body("Response with header using ResponseEntity");
 	}
 	
-	@GetMapping("/api/libroObtenerUsuarios/{usuario}")
-	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
-		List<Libro> libros = new ArrayList<>();
-		List<UsuarioLibro> datos = getUsuario(usuario).getListaLibros();
-		logger.info(datos.get(0).getUsuario().getNombre());
-		for (int i = 0; i < datos.size(); i++) {
-			libros.add(datos.get(i).getLibro());
-		}
-		return libros;
-	}
-	
 	@PostMapping("/usuarios")
 	public Usuario saveUsuario(@RequestBody Usuario user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -112,6 +101,17 @@ public class UsuarioController {
 	@GetMapping("usuariosID/{id}")
 	public Usuario getUsuarioID(@PathVariable Long id) {
 		return iUsuarioDAO.findById(id).get();
+	}
+	
+	@GetMapping("/api/libroObtenerUsuarios/{usuario}")
+	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
+		List<Libro> libros = new ArrayList<>();
+		List<UsuarioLibro> datos = getUsuario(usuario).getListaLibros();
+		logger.info(datos.get(0).getUsuario().getNombre());
+		for (int i = 0; i < datos.size(); i++) {
+			libros.add(datos.get(i).getLibro());
+		}
+		return libros;
 	}
 	
 	@DeleteMapping("/usuarios/{id}")
