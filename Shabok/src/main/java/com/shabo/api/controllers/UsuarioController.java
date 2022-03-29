@@ -107,7 +107,7 @@ public class UsuarioController {
 	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
 		List<Libro> libros = new ArrayList<Libro>();
 		Usuario datos = iUsuarioDAO.findByUsername(usuario);
-		logger.debug(datos.getNombre());
+		logger.debug(datos.getUsername());
 		for (int i = 0; i < datos.getListaLibros().size(); i++) {
 			libros.add(datos.getListaLibros().get(i).getLibro());
 		}
