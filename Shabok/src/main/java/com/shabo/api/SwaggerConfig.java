@@ -24,19 +24,6 @@ public class SwaggerConfig {
 				.apis(RequestHandlerSelectors.basePackage("com.shabok.api"))
 				.paths(PathSelectors.any())
 				.build()
-				.apiInfo(getApiInfo())
 				;
-	}
-	
-	private ApiInfo getApiInfo() {
-		return new ApiInfo(
-				"Order Service API",
-				"Order Service API Description",
-				"1.0",
-				"https://api.shabok.es/terms",
-				new Contact("Shabok", "https://api.shabok.es", "apis@shabok.es"),
-				"LICENSE",
-				"LICENSE URL", null
-				);
 	}
 }
