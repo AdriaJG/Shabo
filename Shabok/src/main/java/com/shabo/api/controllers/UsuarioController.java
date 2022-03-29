@@ -34,12 +34,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}, allowedHeaders = "*")
 public class UsuarioController {
-	@Autowired
-	private IUsuarioDAO iUsuarioDAO;
-	
 	private Verificador verificador;
-	@Autowired
+	
+	private IUsuarioDAO iUsuarioDAO;
+
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+	public UsuarioController(IUsuarioDAO iUsuarioDAO, BCryptPasswordEncoder bCryptPasswordEncoder) {
+		this.iUsuarioDAO = iUsuarioDAO;
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+	}
 	
 	@GetMapping("/response-entity-builder-with-http-headers")
 	public ResponseEntity<String> usingResponseEntityBuilderAndHttpHeaders() {

@@ -23,8 +23,12 @@ import com.shabo.api.dto.Usuario;
 @Service
 public class UsuarioDetailsServiceImpl implements UserDetailsService {
 	
-	@Autowired
 	private IUsuarioDAO iUsuarioDAO;
+
+	public UsuarioDetailsServiceImpl(IUsuarioDAO iUsuarioDAO) {
+		this.iUsuarioDAO = iUsuarioDAO;
+	}
+
 	
 	@Override
 	public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {

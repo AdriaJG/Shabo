@@ -31,8 +31,11 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 	Logger logger = Logger.getLogger("InfoLogging");
-	@Autowired
 	private UserDetailsService userDetailsService;
+
+	public WebSecurity(UserDetailsService userDetailsService) {
+		this.userDetailsService = userDetailsService;
+	}
 
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
