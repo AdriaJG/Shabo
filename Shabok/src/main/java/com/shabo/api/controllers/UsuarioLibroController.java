@@ -56,11 +56,11 @@ public class UsuarioLibroController {
 	}
 	
 	@GetMapping("/libroUsuarios/{libro}")
-	public List<Usuario> mostrarUsuariosLibro(@PathVariable(name = "libro") Long libro) {
-		List<Usuario> usuarios = new ArrayList<>();
+	public List<String> mostrarUsuariosLibro(@PathVariable(name = "libro") Long libro) {
+		List<String> usuarios = new ArrayList<>();
 		List<UsuarioLibro> datos = libroServiceImpl.mostrarLibroID(libro).getListaPropietarios();
 		for (int i = 0; i < datos.size(); i++) {
-			usuarios.add(datos.get(i).getUsuario());
+			usuarios.add(datos.get(i).getUsuario().getUsername());
 		}
 		return usuarios;
 	}
