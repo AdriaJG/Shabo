@@ -104,14 +104,15 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/api/libroObtenerUsuarios/{usuario}")
-	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
+	public /*List<Libro>*/ Usuario mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
 		List<Libro> libros = new ArrayList<>();
-		List<UsuarioLibro> datos = getUsuario(usuario).getListaLibros();
-		logger.info(datos.get(0).getUsuario().getNombre());
-		for (int i = 0; i < datos.size(); i++) {
+		Usuario datos = iUsuarioDAO.findByUsername(usuario);
+		/*for (int i = 0; i < datos.size(); i++) {
 			libros.add(datos.get(i).getLibro());
 		}
 		return libros;
+		*/
+		return datos;
 	}
 	
 	@DeleteMapping("/usuarios/{id}")
