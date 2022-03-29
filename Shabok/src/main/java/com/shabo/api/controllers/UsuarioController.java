@@ -39,7 +39,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}, allowedHeaders = "*")
 public class UsuarioController {
 	Logger logger = LoggerFactory.getLogger("Pruebas");
-	private Verificador verificador;
+	private Verificador verificador = new Verificador();
 	
 	private IUsuarioDAO iUsuarioDAO;
 
