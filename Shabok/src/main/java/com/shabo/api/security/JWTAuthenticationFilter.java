@@ -52,11 +52,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 			throws AuthenticationException {
 		try {
 			HttpServletRequest request2 = request;
-			//logger.info(request2.getReader().lines().collect(Collectors.joining(System.lineSeparator())));
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 			MiniUser credenciales = mapper.readValue(request.getInputStream(), MiniUser.class);
-			logger.info("USER:" +credenciales.getUsername() + "||PASS:" + credenciales.getPassword());
 			return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
 					credenciales.getUsername(), credenciales.getPassword(), new ArrayList<>()));
 		} catch (IOException e) {

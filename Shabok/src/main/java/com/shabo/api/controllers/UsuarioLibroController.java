@@ -6,6 +6,8 @@ package com.shabo.api.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -33,7 +35,7 @@ import com.shabo.api.services.UsuarioServiceImpl;
 @RestController
 @RequestMapping("/api")
 public class UsuarioLibroController {
-	
+	Logger logger = LoggerFactory.getLogger("Pruebas");
 	private Verificador verificador;
 	
 	@Autowired
@@ -53,14 +55,15 @@ public class UsuarioLibroController {
 		return usuarioLibrosServiceImpl.mostrarUsuarioLibros();
 	}
 
-	@GetMapping("/usuarioLibros/{id}")
+	@GetMapping("/usuarioObtenerLibros/{id}")
 	public UsuarioLibro mostrarUsuarioLibroID(@PathVariable(name = "id") long id) {
 		return usuarioLibrosServiceImpl.mostrarUsuarioLibroID(id);
 	}
 	
-	@GetMapping("/libroUsuarios/{usuario}")
+	@GetMapping("/libroObtenerUsuarios/{usuario}")
 	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
 		List<Libro> libros = new ArrayList<>();
+		this.logger.info(usuario);
 		List<UsuarioLibro> datos = usuarioServiceImpl.findByUsername(usuario).getListaLibros();
 		for (int i = 0; i < datos.size(); i++) {
 			libros.add(datos.get(i).getLibro());
