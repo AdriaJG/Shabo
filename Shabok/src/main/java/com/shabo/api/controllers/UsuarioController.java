@@ -16,6 +16,8 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +38,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}, allowedHeaders = "*")
 public class UsuarioController {
+	Logger logger = LoggerFactory.getLogger("Pruebas");
 	private Verificador verificador;
 	
 	private IUsuarioDAO iUsuarioDAO;
@@ -47,16 +50,6 @@ public class UsuarioController {
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 	
-	@GetMapping("/api/libroObtenerUsuarios/{usuario}")
-	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
-		List<Libro> libros = new ArrayList<>();
-		List<UsuarioLibro> datos = getUsuario(usuario).getListaLibros();
-		for (int i = 0; i < datos.size(); i++) {
-			libros.add(datos.get(i).getLibro());
-		}
-		return libros;
-	}
-	
 	@GetMapping("/response-entity-builder-with-http-headers")
 	public ResponseEntity<String> usingResponseEntityBuilderAndHttpHeaders() {
 	    HttpHeaders responseHeaders = new HttpHeaders();
@@ -66,6 +59,17 @@ public class UsuarioController {
 	    return ResponseEntity.ok()
 	      .headers(responseHeaders)
 	      .body("Response with header using ResponseEntity");
+	}
+	
+	@GetMapping("/api/libroObtenerUsuarios/{usuario}")
+	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
+		List<Libro> libros = new ArrayList<>();
+		List<UsuarioLibro> datos = getUsuario(usuario).getListaLibros();
+		logger.info(datos.get(0).getUsuario().getNombre());
+		for (int i = 0; i < datos.size(); i++) {
+			libros.add(datos.get(i).getLibro());
+		}
+		return libros;
 	}
 	
 	@PostMapping("/usuarios")
