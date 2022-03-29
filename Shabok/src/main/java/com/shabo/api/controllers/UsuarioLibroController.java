@@ -36,7 +36,7 @@ import com.shabo.api.services.UsuarioServiceImpl;
 @RequestMapping("/api")
 public class UsuarioLibroController {
 	Logger logger = LoggerFactory.getLogger("Pruebas");
-	private Verificador verificador;
+	private Verificador verificador = new Verificador();
 	
 	@Autowired
 	private LibroServiceImpl libroServiceImpl;
@@ -56,11 +56,11 @@ public class UsuarioLibroController {
 	}
 	
 	@GetMapping("/libroUsuarios/{libro}")
-	public List<String> mostrarUsuariosLibro(@PathVariable(name = "libro") Long libro) {
-		List<String> usuarios = new ArrayList<>();
+	public List<Usuario> mostrarUsuariosLibro(@PathVariable(name = "libro") Long libro) {
+		List<Usuario> usuarios = new ArrayList<>();
 		List<UsuarioLibro> datos = libroServiceImpl.mostrarLibroID(libro).getListaPropietarios();
 		for (int i = 0; i < datos.size(); i++) {
-			usuarios.add(datos.get(i).getUsuario().getUsername());
+			usuarios.add(datos.get(i).getUsuario());
 		}
 		return usuarios;
 	}
