@@ -22,9 +22,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name="Categorialibro")
 @IdClass(CategoriaLibroID.class)
-@JsonIdentityInfo(
-		  generator = ObjectIdGenerators.PropertyGenerator.class, 
-		  property = "ISBN")
 public class CategoriaLibro {
 	@Id
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)

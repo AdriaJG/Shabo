@@ -32,13 +32,11 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name="Libros")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@JsonIdentityInfo(
-		  generator = ObjectIdGenerators.PropertyGenerator.class, 
-		  property = "id")
 public class Libro {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long ISBN;
 	@Column(name="titulo")
 	private String titulo;
 	@Column(name="descripcion")
@@ -54,10 +52,10 @@ public class Libro {
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	private List<CategoriaLibro> categorias;
 	
-	public Libro(long id, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
+	public Libro(long ISBN, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
 			List<Comentario> comentarios, List<Valoracion> puntuaciones, List<CategoriaLibro> categorias) {
 		super();
-		this.id = id;
+		this.ISBN = ISBN;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.autor = autor;
@@ -71,12 +69,12 @@ public class Libro {
 		super();
 	}
 	@JsonAnyGetter
-	public long getid() {
-		return this.id;
+	public long getISBN() {
+		return this.ISBN;
 	}
 	@JsonAnySetter
-	public void setid(long iSBN) {
-		id = iSBN;
+	public void setISBN(long iSBN) {
+		ISBN = iSBN;
 	}
 
 	public String getTitulo() {
