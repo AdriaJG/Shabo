@@ -42,13 +42,17 @@ public class UsuarioLibroController {
 	private LibroServiceImpl libroServiceImpl;
 	
 	@Autowired
-	private UsuarioServiceImpl usuarioServiceImpl;
-	
-	@Autowired
 	private UsuarioLibroServiceImpl usuarioLibrosServiceImpl;
+	
+	private IUsuarioDAO iUsuarioDAO;
 
-	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+	public UsuarioLibroController(IUsuarioDAO iUsuarioDAO, BCryptPasswordEncoder bCryptPasswordEncoder) {
+		this.iUsuarioDAO = iUsuarioDAO;
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+	}
+
 
 	@GetMapping("/usuarioLibros")
 	public List<UsuarioLibro> listarUsuarioLibro() {
@@ -64,7 +68,7 @@ public class UsuarioLibroController {
 	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
 		List<Libro> libros = new ArrayList<>();
 		this.logger.info(usuario);
-		List<UsuarioLibro> datos = usuarioServiceImpl.buscarUsuarioUsername(usuario).getListaLibros();
+		List<UsuarioLibro> datos = iUsuarioDAO.findByUsername(usuario).getListaLibros();
 		for (int i = 0; i < datos.size(); i++) {
 			libros.add(datos.get(i).getLibro());
 		}
