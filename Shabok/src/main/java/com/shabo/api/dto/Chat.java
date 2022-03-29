@@ -30,6 +30,7 @@ import com.shabo.api.statics.EstadoChat;
  */
 @Entity
 @Table(name="Chatea")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Chat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

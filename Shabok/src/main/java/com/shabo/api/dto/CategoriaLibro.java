@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
@@ -21,6 +22,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  */
 @Entity
 @Table(name="CategoriaLibro")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @IdClass(CategoriaLibroID.class)
 public class CategoriaLibro {
 	@Id
