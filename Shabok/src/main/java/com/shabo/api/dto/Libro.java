@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  *
  */
 @Entity
-@Table(name="libros")
+@Table(name="Libros")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Libro {
 	
