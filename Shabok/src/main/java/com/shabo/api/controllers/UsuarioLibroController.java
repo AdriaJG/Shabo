@@ -39,6 +39,7 @@ public class UsuarioLibroController {
 	@Autowired
 	private LibroServiceImpl libroServiceImpl;
 	
+	@Autowired
 	private IUsuarioDAO usuarioServiceImpl;
 	
 	@Autowired

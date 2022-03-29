@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuarioController {
 	@Autowired
 	private IUsuarioDAO iUsuarioDAO;
-	@Autowired
+	
 	private Verificador verificador;
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
