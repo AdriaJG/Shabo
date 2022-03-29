@@ -39,18 +39,18 @@ public class UsuarioLibroController {
 	@Autowired
 	private LibroServiceImpl libroServiceImpl;
 	
-	private IUsuarioDAO usuarioServiceImpl;
+	//private IUsuarioDAO usuarioServiceImpl;
 	
 	@Autowired
 	private UsuarioLibroServiceImpl usuarioLibrosServiceImpl;
 
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+/*
 	public UsuarioLibroController(IUsuarioDAO iUsuarioDAO, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.usuarioServiceImpl = iUsuarioDAO;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
-
+*/
 	@GetMapping("/usuarioLibros")
 	public List<UsuarioLibro> listarUsuarioLibro() {
 		return usuarioLibrosServiceImpl.mostrarUsuarioLibros();
@@ -60,7 +60,7 @@ public class UsuarioLibroController {
 	public UsuarioLibro mostrarUsuarioLibroID(@PathVariable(name = "id") long id) {
 		return usuarioLibrosServiceImpl.mostrarUsuarioLibroID(id);
 	}
-	
+	/*
 	@GetMapping("/libroUsuarios/{usuario}")
 	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
 		List<Libro> libros = new ArrayList<>();
@@ -70,7 +70,7 @@ public class UsuarioLibroController {
 		}
 		return libros;
 	}
-	
+	*/
 	@GetMapping("/libroUsuarios/{libro}")
 	public List<Usuario> mostrarUsuariosLibro(@PathVariable(name = "libro") Long libro) {
 		List<Usuario> usuarios = new ArrayList<>();
