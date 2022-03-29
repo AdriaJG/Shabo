@@ -14,6 +14,7 @@ import static com.shabo.api.statics.Roles.*;
 import java.security.Principal;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -33,15 +34,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}, allowedHeaders = "*")
 public class UsuarioController {
+	@Autowired
 	private IUsuarioDAO iUsuarioDAO;
+	@Autowired
 	private Verificador verificador;
+	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
-	public UsuarioController(IUsuarioDAO iUsuarioDAO, BCryptPasswordEncoder bCryptPasswordEncoder) {
-		this.iUsuarioDAO = iUsuarioDAO;
-		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-	}
-	
 	
 	@GetMapping("/response-entity-builder-with-http-headers")
 	public ResponseEntity<String> usingResponseEntityBuilderAndHttpHeaders() {
