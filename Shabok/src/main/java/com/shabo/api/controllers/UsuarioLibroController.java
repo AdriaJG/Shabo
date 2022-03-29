@@ -3,6 +3,7 @@
  */
 package com.shabo.api.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.shabo.api.dto.Libro;
+import com.shabo.api.dto.Usuario;
 import com.shabo.api.dto.UsuarioLibro;
+import com.shabo.api.services.LibroServiceImpl;
 import com.shabo.api.services.UsuarioLibroServiceImpl;
 import com.shabo.api.services.UsuarioServiceImpl;
 
@@ -29,7 +33,13 @@ import com.shabo.api.services.UsuarioServiceImpl;
 public class UsuarioLibroController {
 
 	private Verificador verificador;
-
+	
+	@Autowired
+	private LibroServiceImpl libroServiceImpl;
+	
+	@Autowired
+	private UsuarioServiceImpl usuarioServiceImpl;
+	
 	@Autowired
 	private UsuarioLibroServiceImpl usuarioLibrosServiceImpl;
 
@@ -41,6 +51,26 @@ public class UsuarioLibroController {
 	@GetMapping("/usuarioLibros/{id}")
 	public UsuarioLibro mostrarUsuarioLibroID(@PathVariable(name = "id") long id) {
 		return usuarioLibrosServiceImpl.mostrarUsuarioLibroID(id);
+	}
+	
+	@GetMapping("/usuarioLibros/{usuario}")
+	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
+		List<Libro> libros = new ArrayList<>();
+		List<UsuarioLibro> datos = usuarioServiceImpl.buscarUsuarioUsername(usuario).getListaLibros();
+		for (int i = 0; i < datos.size(); i++) {
+			libros.add(datos.get(i).getLibro());
+		}
+		return libros;
+	}
+	
+	@GetMapping("/libroUsuarios/{libro}")
+	public List<Usuario> mostrarUsuariosLibro(@PathVariable(name = "libro") Long libro) {
+		List<Usuario> usuarios = new ArrayList<>();
+		List<UsuarioLibro> datos = libroServiceImpl.mostrarLibroID(libro).getListaPropietarios();
+		for (int i = 0; i < datos.size(); i++) {
+			usuarios.add(datos.get(i).getUsuario());
+		}
+		return usuarios;
 	}
 
 	@PutMapping("/usuarioLibros/crear")
