@@ -50,7 +50,7 @@ public class UsuarioController {
 	@GetMapping("/api/libroObtenerUsuarios/{usuario}")
 	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
 		List<Libro> libros = new ArrayList<>();
-		List<UsuarioLibro> datos = iUsuarioDAO.findByUsername(usuario).getListaLibros();
+		List<UsuarioLibro> datos = getUsuario(usuario).getListaLibros();
 		for (int i = 0; i < datos.size(); i++) {
 			libros.add(datos.get(i).getLibro());
 		}
