@@ -58,7 +58,7 @@ public class UsuarioLibroController {
 		return usuarioLibrosServiceImpl.mostrarUsuarioLibroID(id);
 	}
 	
-	@GetMapping("/usuarioLibros/{usuario}")
+	@GetMapping("/libroUsuarios/{usuario}")
 	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
 		List<Libro> libros = new ArrayList<>();
 		List<UsuarioLibro> datos = usuarioServiceImpl.findByUsername(usuario).getListaLibros();
