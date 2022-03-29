@@ -39,7 +39,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}, allowedHeaders = "*")
 public class UsuarioController {
 	Logger logger = LoggerFactory.getLogger("Pruebas");
-	private Verificador verificador = new Verificador();
+	private Verificador verificador;
 	
 	private IUsuarioDAO iUsuarioDAO;
 
@@ -117,6 +117,7 @@ public class UsuarioController {
 	
 	@DeleteMapping("/usuarios/{id}")
 	public void eliminarUser(@PathVariable(name="id")long id, Authentication authentication) {
+		this.verificador = new Verificador(authentication, iUsuarioDAO);
 		this.verificador.SetUsuarioAuth(authentication);
 		if(verificador.isRecursoPropietario(iUsuarioDAO.getById(id))) {
 		iUsuarioDAO.deleteById(id);
