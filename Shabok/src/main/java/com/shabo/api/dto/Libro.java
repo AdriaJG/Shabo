@@ -71,11 +71,9 @@ public class Libro {
 	public Libro() {
 		super();
 	}
-	@JsonAnyGetter
 	public long getISBN() {
 		return this.ISBN;
 	}
-	@JsonAnySetter
 	public void setISBN(long iSBN) {
 		ISBN = iSBN;
 	}
