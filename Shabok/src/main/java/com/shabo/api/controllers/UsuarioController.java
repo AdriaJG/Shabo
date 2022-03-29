@@ -6,12 +6,14 @@ package com.shabo.api.controllers;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shabo.api.dao.IUsuarioDAO;
+import com.shabo.api.dto.Libro;
 import com.shabo.api.dto.Usuario;
 import com.shabo.api.dto.UsuarioLibro;
 
 import static com.shabo.api.statics.Roles.*;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +45,16 @@ public class UsuarioController {
 	public UsuarioController(IUsuarioDAO iUsuarioDAO, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.iUsuarioDAO = iUsuarioDAO;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+	}
+	
+	@GetMapping("/api/libroObtenerUsuarios/{usuario}")
+	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
+		List<Libro> libros = new ArrayList<>();
+		List<UsuarioLibro> datos = iUsuarioDAO.findByUsername(usuario).getListaLibros();
+		for (int i = 0; i < datos.size(); i++) {
+			libros.add(datos.get(i).getLibro());
+		}
+		return libros;
 	}
 	
 	@GetMapping("/response-entity-builder-with-http-headers")
