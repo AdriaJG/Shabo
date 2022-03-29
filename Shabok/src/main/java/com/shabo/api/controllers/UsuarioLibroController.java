@@ -42,7 +42,7 @@ public class UsuarioLibroController {
 	private LibroServiceImpl libroServiceImpl;
 	
 	@Autowired
-	private IUsuarioDAO usuarioServiceImpl;
+	private UsuarioServiceImpl usuarioServiceImpl;
 	
 	@Autowired
 	private UsuarioLibroServiceImpl usuarioLibrosServiceImpl;
@@ -64,7 +64,7 @@ public class UsuarioLibroController {
 	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
 		List<Libro> libros = new ArrayList<>();
 		this.logger.info(usuario);
-		List<UsuarioLibro> datos = usuarioServiceImpl.findByUsername(usuario).getListaLibros();
+		List<UsuarioLibro> datos = usuarioServiceImpl.buscarUsuarioUsername(usuario).getListaLibros();
 		for (int i = 0; i < datos.size(); i++) {
 			libros.add(datos.get(i).getLibro());
 		}
