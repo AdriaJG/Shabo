@@ -10,7 +10,7 @@ public class Verificador {
 	Usuario usuario;
 	IUsuarioDAO iUsuarioDAO;
 	
-	public Verificador(Authentication authentication) {
+	public Verificador(Authentication authentication, IUsuarioDAO iUsuarioDAO) {
 		super();
 		System.out.println(authentication);
 		this.usuario = iUsuarioDAO.findByNombre(authentication.getName());
