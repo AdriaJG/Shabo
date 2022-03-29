@@ -43,15 +43,6 @@ public class UsuarioLibroController {
 	
 	@Autowired
 	private UsuarioLibroServiceImpl usuarioLibrosServiceImpl;
-	
-	private IUsuarioDAO iUsuarioDAO;
-
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-	public UsuarioLibroController(IUsuarioDAO iUsuarioDAO, BCryptPasswordEncoder bCryptPasswordEncoder) {
-		this.iUsuarioDAO = iUsuarioDAO;
-		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-	}
 
 
 	@GetMapping("/usuarioLibros")

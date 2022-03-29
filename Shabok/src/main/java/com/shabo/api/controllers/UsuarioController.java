@@ -109,6 +109,11 @@ public class UsuarioController {
 		return iUsuarioDAO.findByNombre(authentication.getName()).getListaLibros();
 	}
 	
+	@GetMapping("usuariosID/{id}")
+	public Usuario getUsuarioID(@PathVariable Long id) {
+		return iUsuarioDAO.findById(id).get();
+	}
+	
 	@DeleteMapping("/usuarios/{id}")
 	public void eliminarUser(@PathVariable(name="id")long id, Authentication authentication) {
 		this.verificador.SetUsuarioAuth(authentication);
