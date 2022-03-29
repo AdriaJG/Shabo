@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  */
 @Entity
 @Table(name="UsuarioLibro")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class UsuarioLibro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
