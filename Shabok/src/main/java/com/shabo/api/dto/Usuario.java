@@ -36,7 +36,6 @@ public class Usuario {
 	@JsonIgnore
 	@Column(name="password")
 	private String password;
-	@JsonIgnore
 	@Column(name="username")
 	private String username;
 	@Column(name="email")
