@@ -81,6 +81,10 @@ public class UsuarioController {
 	public Usuario getUsuario(@PathVariable String nombre) {
 		return iUsuarioDAO.findByUsername(nombre);
 	}
+	@GetMapping("/obtenerUsuario")
+	public Usuario obtenerUsuarioAutenticado(Authentication authentication) {
+		return iUsuarioDAO.findByUsername(authentication.getName());
+	}
 	
 	@GetMapping("usuarios/libros")
 	public List<UsuarioLibro> obtenerLibrosUsuario(Authentication authentication){
