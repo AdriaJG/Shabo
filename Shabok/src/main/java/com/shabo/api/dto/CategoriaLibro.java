@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  *
  */
 @Entity
-@Table(name="Categorialibro")
+@Table(name="categorialibro")
 @IdClass(CategoriaLibroID.class)
 public class CategoriaLibro {
 	@Id
