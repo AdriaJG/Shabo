@@ -10,6 +10,8 @@ package com.shabo.api.security;
 
 import static com.shabo.api.security.Constants.*;
 
+import java.util.logging.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +30,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
-
+	Logger logger = Logger.getLogger("InfoLogging");
 	@Autowired
 	private UserDetailsService userDetailsService;
 
@@ -61,6 +63,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// Se define la clase que recupera los usuarios y el algoritmo para procesar las passwords
+		logger.info(auth.toString());
 		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
 	}
 
