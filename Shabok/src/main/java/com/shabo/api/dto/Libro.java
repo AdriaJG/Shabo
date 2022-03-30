@@ -54,7 +54,7 @@ public class Libro {
 	private List<Valoracion> puntuaciones;
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	@JsonIgnore
-	private List<CategoriaLibro> categorias;
+	private List<CategoriaLibro> categoria;
 	
 	public Libro(long ISBN, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
 			List<Comentario> comentarios, List<Valoracion> puntuaciones, List<CategoriaLibro> categorias) {
@@ -66,7 +66,7 @@ public class Libro {
 		this.listaPropietarios = listaPropietarios;
 		this.comentarios = comentarios;
 		this.puntuaciones = puntuaciones;
-		this.categorias = categorias;
+		this.categoria = categorias;
 	}
 
 	public Libro() {
@@ -128,10 +128,10 @@ public class Libro {
 	}
 	
 	public List<CategoriaLibro> getCategorias() {
-		return categorias;
+		return categoria;
 	}
 
 	public void setCategorias(List<CategoriaLibro> categorias) {
-		this.categorias = categorias;
+		this.categoria = categorias;
 	}
 }
