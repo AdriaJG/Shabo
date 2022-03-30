@@ -52,7 +52,7 @@ public class Libro {
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	@JsonIgnore
 	private List<Valoracion> puntuaciones;
-	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
+	//@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "libro")
 	@JsonIgnore
 	private List<CategoriaLibro> categoria;
 	
