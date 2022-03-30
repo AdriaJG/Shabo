@@ -69,6 +69,16 @@ public class Libro {
 		this.categoria = categorias;
 	}
 
+	public Libro(long iSBN, String titulo, String descripcion, String autor) {
+		super();
+		ISBN = iSBN;
+		this.titulo = titulo;
+		this.descripcion = descripcion;
+		this.autor = autor;
+	}
+
+
+
 	public Libro() {
 		super();
 	}
