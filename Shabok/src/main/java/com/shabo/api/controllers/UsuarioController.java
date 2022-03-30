@@ -61,22 +61,19 @@ public class UsuarioController {
 	      .body("Response with header using ResponseEntity");
 	}
 	
-	@PostMapping("/usuarios")
-	public Usuario saveUsuario(@RequestBody Usuario user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		iUsuarioDAO.save(user);
-		return user;
-	}
-	
 	@PostMapping("/register")
-	public Usuario registrarUsuario(@RequestBody Usuario user) {
-		
+	public Usuario registrarUsuario(@RequestBody miniuser user) {
+		logger.info(user.getUsername());
+		logger.info(user.getPassword());
+		logger.info(user.getNombre());
+		logger.info(user.getEmail());
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));;
 		
 		Usuario crearUsuario = new Usuario(user.getUsername(), user.getPassword(), user.getNombre(), user.getEmail());
 		crearUsuario.setRole(USER);
 		iUsuarioDAO.save(crearUsuario);
 		return crearUsuario;
+		
 	}
 
 	@GetMapping("/usuarios")
@@ -123,4 +120,47 @@ public class UsuarioController {
 		iUsuarioDAO.deleteById(id);
 		}
 	}
+}
+
+class miniuser{
+	String username;
+	String password;
+	String nombre;
+	String email;
+	public miniuser(String username, String password, String nombre, String email) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.nombre = nombre;
+		this.email = email;
+	}
+	public miniuser() {
+		super();
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String name) {
+		this.nombre = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
 }

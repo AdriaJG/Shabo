@@ -81,8 +81,8 @@ public class Usuario {
 
 	public Usuario(String username, String password, String nombre, String email) {
 		super();
-		this.password = password;
 		this.username = username;
+		this.password = password;
 		this.nombre = nombre;
 		this.email = email;
 	}
