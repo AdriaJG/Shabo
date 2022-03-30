@@ -117,7 +117,7 @@ public class UsuarioController {
 	
 	@DeleteMapping("/usuarios/{id}")
 	public void eliminarUser(@PathVariable(name="id")long id, Authentication authentication) {
-		this.verificador = new Verificador(authentication, iUsuarioDAO);
+		this.verificador = new Verificador(authentication, this.iUsuarioDAO);
 		this.verificador.SetUsuarioAuth(authentication);
 		if(verificador.isRecursoPropietario(iUsuarioDAO.getById(id))) {
 		iUsuarioDAO.deleteById(id);
