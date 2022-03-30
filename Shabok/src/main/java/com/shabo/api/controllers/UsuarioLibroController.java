@@ -38,11 +38,18 @@ public class UsuarioLibroController {
 	Logger logger = LoggerFactory.getLogger("Pruebas");
 	private Verificador verificador = new Verificador();
 	
+	IUsuarioDAO iUsuarioDAO;
+	
 	@Autowired
 	private LibroServiceImpl libroServiceImpl;
 	
 	@Autowired
 	private UsuarioLibroServiceImpl usuarioLibrosServiceImpl;
+	
+	public UsuarioLibroController(IUsuarioDAO iU) {
+		// TODO Auto-generated constructor stub
+		this.iUsuarioDAO = iU;
+	}
 
 
 	@GetMapping("/usuarioLibros")
@@ -66,8 +73,11 @@ public class UsuarioLibroController {
 	}
 
 	@PutMapping("/usuarioLibros/crear")
-	public UsuarioLibro crearUsuarioLibro(@RequestBody UsuarioLibro usuarioLibro) {
-		return usuarioLibrosServiceImpl.crearUsuarioLibro(usuarioLibro);
+	public UsuarioLibro crearUsuarioLibro(@RequestBody Long isbn, Authentication authentication) {
+		UsuarioLibro crearLibroUsuario = new UsuarioLibro();
+		crearLibroUsuario.setUsuario(this.iUsuarioDAO.findByUsername(authentication.getName()));
+		crearLibroUsuario.setLibro(this.libroServiceImpl.mostrarLibroID(isbn));
+		return usuarioLibrosServiceImpl.crearUsuarioLibro(crearLibroUsuario);
 	}
 
 	@PostMapping("/usuarioLibros/modificar/{id}")
