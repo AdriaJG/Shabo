@@ -47,7 +47,7 @@ public class LibroController {
 	@PutMapping("/libros/crear")
 	public Libro crearLibro(@RequestBody minilibro libro) {
 		//logger.info(String.valueOf(libro.getISBN()));
-		Libro crearLibro = new Libro(libro.getISBN(), libro.getNombre(), libro.getDescripcion(), libro.getAutor());
+		Libro crearLibro = new Libro((long)libro.getISBN(), libro.getNombre(), libro.getDescripcion(), libro.getAutor());
 		return librosServiceImpl.crearLibro(crearLibro);
 	}
 	
