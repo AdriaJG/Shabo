@@ -73,7 +73,7 @@ public class UsuarioLibroController {
 	}
 
 	@PutMapping("/usuarioLibros/crear")
-	public UsuarioLibro crearUsuarioLibro(@RequestBody Long isbn, Authentication authentication) {
+	public UsuarioLibro crearUsuarioLibro(@RequestBody long isbn, Authentication authentication) {
 		UsuarioLibro crearLibroUsuario = new UsuarioLibro();
 		crearLibroUsuario.setUsuario(this.iUsuarioDAO.findByUsername(authentication.getName()));
 		crearLibroUsuario.setLibro(this.libroServiceImpl.mostrarLibroID(isbn));

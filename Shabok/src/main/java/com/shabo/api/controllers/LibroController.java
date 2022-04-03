@@ -46,7 +46,7 @@ public class LibroController {
 	
 	@PutMapping("/libros/crear")
 	public Libro crearLibro(@RequestBody minilibro libro) {
-		logger.info(String.valueOf(libro.getISBN()));
+		//logger.info(String.valueOf(libro.getISBN()));
 		Libro crearLibro = new Libro(libro.getISBN(), libro.getNombre(), libro.getDescripcion(), libro.getAutor());
 		return librosServiceImpl.crearLibro(crearLibro);
 	}
@@ -69,7 +69,6 @@ public class LibroController {
 		librosServiceImpl.eliminarLibro(id);
 		
 	}
-	
 }
 
 class minilibro{
@@ -89,10 +88,10 @@ class minilibro{
 		this.descripcion = descripcion;
 	}
 	public long getISBN() {
-		return ISBN;
+		return this.ISBN;
 	}
 	public void setISBN(long iSBN) {
-		ISBN = iSBN;
+		this.ISBN = iSBN;
 	}
 	public String getNombre() {
 		return nombre;
@@ -107,11 +106,9 @@ class minilibro{
 		this.autor = autor;
 	}
 	public String getDescripcion() {
-		return descripcion;
+		return this.descripcion;
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
 }
