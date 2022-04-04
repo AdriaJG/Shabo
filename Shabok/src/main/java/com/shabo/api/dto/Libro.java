@@ -35,8 +35,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 public class Libro {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long ISBN;
+	private long isbn;
 	@Column(name="titulo")
 	private String titulo;
 	@Column(name="descripcion")
@@ -56,10 +55,10 @@ public class Libro {
 	@JsonIgnore
 	private List<CategoriaLibro> categoria;
 	
-	public Libro(long ISBN, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
+	public Libro(long isbn, String titulo, String descripcion, String autor, List<UsuarioLibro> listaPropietarios,
 			List<Comentario> comentarios, List<Valoracion> puntuaciones, List<CategoriaLibro> categorias) {
 		super();
-		this.ISBN = ISBN;
+		this.isbn = isbn;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.autor = autor;
@@ -69,9 +68,9 @@ public class Libro {
 		this.categoria = categorias;
 	}
 
-	public Libro(long iSBN, String titulo, String descripcion, String autor) {
+	public Libro(long isbn, String titulo, String descripcion, String autor) {
 		super();
-		ISBN = iSBN;
+		this.isbn = isbn;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.autor = autor;
@@ -82,11 +81,11 @@ public class Libro {
 	public Libro() {
 		super();
 	}
-	public long getISBN() {
-		return this.ISBN;
+	public long getIsbn() {
+		return this.isbn;
 	}
-	public void setISBN(long iSBN) {
-		ISBN = iSBN;
+	public void setIsbn(long iSBN) {
+		isbn = iSBN;
 	}
 
 	public String getTitulo() {

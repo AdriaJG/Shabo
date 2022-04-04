@@ -100,18 +100,6 @@ public class UsuarioController {
 		return iUsuarioDAO.findById(id).get();
 	}
 	
-	@GetMapping("/api/libroObtenerUsuarios/{usuario}")
-	public String mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
-		List<Libro> libros = new ArrayList<Libro>();
-		Usuario datos = iUsuarioDAO.findByUsername(usuario);
-		logger.debug(datos.getUsername());
-		for (int i = 0; i < datos.getListaLibros().size(); i++) {
-			libros.add(datos.getListaLibros().get(i).getLibro());
-		}
-		return datos.getListaLibros().get(0).getLibro().getTitulo();
-		
-	}
-	
 	@DeleteMapping("/usuarios/{id}")
 	public void eliminarUser(@PathVariable(name="id")long id, Authentication authentication) {
 		this.verificador = new Verificador(authentication, this.iUsuarioDAO);

@@ -44,15 +44,15 @@ public class LibroController {
 		return librosServiceImpl.mostrarLibroID(id);
 	}
 	
-	@PutMapping("/libros/crear")
-	public Libro crearLibro(@RequestBody minilibro libro) {
-		long id = Long.parseLong(libro.getISBN());
-		//logger.info(String.valueOf(libro.getISBN()));
-		Libro crearLibro = new Libro(Long.parseLong(libro.getISBN()), libro.getNombre(), libro.getDescripcion(), libro.getAutor());
+	@PostMapping("/libros/crear")
+	public Libro crearLibro(@RequestBody Libro libro)  throws Exception {
+		
+		logger.info(String.valueOf(libro.getIsbn()));
+		Libro crearLibro = new Libro(libro.getIsbn(), libro.getTitulo(), libro.getDescripcion(), libro.getAutor());
 		return librosServiceImpl.crearLibro(crearLibro);
 	}
 	
-	@PostMapping("/libros/modificar/{id}")
+	@PutMapping("/libros/modificar/{id}")
 	public Libro modificarLibro(@PathVariable(name="id") long id, @RequestBody Libro libro) {
 		Libro libroSeleccionado = new Libro();
 		Libro libroModificado = new Libro();
@@ -69,47 +69,5 @@ public class LibroController {
 	public void eliminarEquioi(@PathVariable(name="id") long id) {
 		librosServiceImpl.eliminarLibro(id);
 		
-	}
-}
-
-class minilibro{
-	String ISBN;
-	String nombre;
-	String autor;
-	String descripcion;
-	
-	public minilibro() {
-		super();
-	}
-	public minilibro(String ISBN, String nombre, String autor, String descripcion) {
-		super();
-		this.ISBN = ISBN;
-		this.nombre = nombre;
-		this.autor = autor;
-		this.descripcion = descripcion;
-	}
-	public String getISBN() {
-		return this.ISBN;
-	}
-	public void setISBN(String iSBN) {
-		this.ISBN = iSBN;
-	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public String getAutor() {
-		return autor;
-	}
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-	public String getDescripcion() {
-		return this.descripcion;
-	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
 	}
 }

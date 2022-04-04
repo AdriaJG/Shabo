@@ -41,8 +41,8 @@ public class PrestamoController {
 		return prestamosServiceImpl.mostrarPrestamoID(id);
 	}
 	
-	@PutMapping("/prestamos/crear")
-	public Prestamo crearPrestamo(@RequestBody Prestamo prestamo){
+	@PostMapping("/prestamos/crear")
+	public Prestamo crearPrestamo(@RequestBody Prestamo prestamo, Authentication usuario){
 		return prestamosServiceImpl.crearPrestamo(prestamo);
 	}
 	

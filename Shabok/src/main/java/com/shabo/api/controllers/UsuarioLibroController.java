@@ -51,7 +51,6 @@ public class UsuarioLibroController {
 		this.iUsuarioDAO = iU;
 	}
 
-
 	@GetMapping("/usuarioLibros")
 	public List<UsuarioLibro> listarUsuarioLibro() {
 		return usuarioLibrosServiceImpl.mostrarUsuarioLibros();
@@ -63,7 +62,7 @@ public class UsuarioLibroController {
 	}
 	
 	@GetMapping("/libroUsuarios/{libro}")
-	public List<Usuario> mostrarUsuariosLibro(@PathVariable(name = "libro") Long libro) {
+	public List<Usuario> mostrarUsuariosLibro(@PathVariable(name = "libro") long libro) {
 		List<Usuario> usuarios = new ArrayList<>();
 		List<UsuarioLibro> datos = libroServiceImpl.mostrarLibroID(libro).getListaPropietarios();
 		for (int i = 0; i < datos.size(); i++) {
@@ -72,15 +71,15 @@ public class UsuarioLibroController {
 		return usuarios;
 	}
 
-	@PutMapping("/usuarioLibros/crear")
-	public UsuarioLibro crearUsuarioLibro(@RequestBody long isbn, Authentication authentication) {
+	@PostMapping("/usuarioLibros/crear/{isbn}")
+	public UsuarioLibro crearUsuarioLibro(@PathVariable(name = "isbn") long isbn, Authentication authentication) {
 		UsuarioLibro crearLibroUsuario = new UsuarioLibro();
 		crearLibroUsuario.setUsuario(this.iUsuarioDAO.findByUsername(authentication.getName()));
 		crearLibroUsuario.setLibro(this.libroServiceImpl.mostrarLibroID(isbn));
 		return usuarioLibrosServiceImpl.crearUsuarioLibro(crearLibroUsuario);
 	}
 
-	@PostMapping("/usuarioLibros/modificar/{id}")
+	@PutMapping("/usuarioLibros/modificar/{id}")
 	public UsuarioLibro modificarUsuarioLibro(@PathVariable(name = "id") long id, @RequestBody UsuarioLibro usuarioLibro,
 			Authentication authentication) {
 
@@ -96,6 +95,18 @@ public class UsuarioLibroController {
 			return usuarioLibroModificado = usuarioLibrosServiceImpl.modificarUsuarioLibro(usuarioLibroSeleccionado);
 		}
 		return null;
+	}
+	
+	@GetMapping("/libroObtenerUsuarios/{usuario}")
+	public List<Libro> mostrarLibrosUsuario(@PathVariable(name = "usuario") String usuario) {
+		List<Libro> libros = new ArrayList<Libro>();
+		Usuario datos = iUsuarioDAO.findByUsername(usuario);
+		List<UsuarioLibro> librosUsuario = usuarioLibrosServiceImpl.mostrarLibrosUsuario(datos);
+		for (int i = 0; i < librosUsuario.size(); i++) {
+			libros.add(librosUsuario.get(i).getLibro());
+		}
+		return libros;
+		
 	}
 
 	@DeleteMapping("usuarioLibro/eliminar/{id}")

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.shabo.api.dao.IUsuarioLibroDAO;
+import com.shabo.api.dto.Usuario;
 import com.shabo.api.dto.UsuarioLibro;
 
 /**
@@ -49,6 +50,12 @@ public class UsuarioLibroServiceImpl implements IUsuarioLibroService {
 	public void eliminarUsuarioLibro(long id) {
 		iUsuarioLibroDAO.deleteById(id);
 		
+	}
+
+	@Override
+	public List<UsuarioLibro> mostrarLibrosUsuario(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return iUsuarioLibroDAO.findByUsuario(usuario);
 	}
 	
 	
